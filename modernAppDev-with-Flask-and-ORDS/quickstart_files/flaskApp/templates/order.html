@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Hotdog Order Form</title>
+    <link rel="icon" type="image/x-icon" href="../static/favicon.ico">
+    <link href = "../static/style.css" rel = "stylesheet">
+    <script>
+        function totalPrice() {
+            var quantity = parseFloat(document.getElementById('quantity').value);
+            var price = parseFloat(document.getElementById('price').innerHTML);
+            document.getElementById('total').value = (quantity * price).toFixed(2);
+        }
+    
+        function getPrice(){
+
+            var product_id = parseFloat(document.getElementById('product_id').value);
+
+            fetch('/get_price?a='+product_id)
+            .then(response => response.json())  
+                .then(json => {
+                    document.getElementById("price").innerHTML = JSON.stringify(json)
+                })
+        }
+
+    </script>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header class="header">
+
+            <nav class="d-flex flex-wrap justify-content-center border-bottom">
+                <img src="../static/hotdog.png"/>
+                    <span class="d-flex align-items-center mb-md-0 me-md-auto text-dark text-decoration-none title">Frank's Franks</span>
+
+
+                <ul class="nav nav-pills">
+                    <li class="nav-item">
+                        <a href="/" class="nav-link active" aria-current="page">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/myorders" class="nav-link myorders">My Orders</a>
+                    </li>                  
+                </ul>
+
+            </nav>
+
+        </header>
+    </div>
+    <div class="main">
+        <div class="topbox">
+            <h1 class="bannertext">Hotdog Order Form</h1>
+            <div class="myform">
+                <form action = "/result" method = "POST">
+                    <p class="header1"> Hotdog:                    
+                        <select class="styleput" name="product_id" id="product_id" method="GET" action="/" onchange="getPrice()">
+                            <option value="" selected>-- Choose Hotdog --</option>
+                            {% for i in list_of_hotdogs_return %}
+                                <option value="{{ i["product_id"] }}">{{ i["product_name"] }}</option>
+                            {% endfor %}
+                        </select>
+                    </p>
+                    <p class="header1">Price: $<span id="price"></span></p> 
+                    <p class="header1">Quantity: <input class="styleput" type = "number" name = "quantity" id="quantity" onchange="totalPrice()" /></p>                   
+                    <p class="header1">Total Price: $<input class="styleput" type = "number" name = "total" id="total" readonly/></p>                                              
+                    <p><input class="stylebut" type = "submit" value = "Place Order" /></p>
+                 </form>
+            </div>  
+        </div>
+</body>
+</html>
