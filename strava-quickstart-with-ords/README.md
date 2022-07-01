@@ -1,0 +1,1 @@
+# strava-quickstart-with-ords

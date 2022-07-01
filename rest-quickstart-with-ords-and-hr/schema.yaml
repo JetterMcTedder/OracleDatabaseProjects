@@ -1,0 +1,57 @@
+## Copyright © 2021, Oracle and/or its affiliates. 
+## All rights reserved. The Universal Permissive License (UPL), Version 1.0 as shown at http://oss.oracle.com/licenses/upl
+## Database Development Tools - btspendo
+
+    title: "REST Enabled HR Schema with Oracle REST Data Services"
+    stackDescription: "REST Enabled HR Schema with Oracle REST Data Services"
+    schemaVersion: 1.0.0
+    version: "20220420"
+    locale: "en"
+
+    variableGroups:
+    - title: General Configuration
+      visible: false
+      variables:
+      - tenancy_ocid
+      - release
+      - region
+
+    - title: Required Configuration
+      visible: true  
+      variables:
+      - compartment_ocid
+
+    variables:
+      
+      compartment_ocid:
+        type: oci:identity:compartment:id
+        required: true
+        visible: true
+        title: Compartment
+        description: "Compartment where you want to create the solution resources"
+
+      region:
+        type: oci:identity:region:name
+        required: true
+        visible: false
+
+
+    outputs:
+
+      dashboard_url:
+        title: "Dashboard URL"
+        displayText: "Dashboard URL"
+        type: string
+        visible: true
+
+      openapi_view:
+        title: "OpenAPI View for HR REST Services"
+        displayText: "OpenAPI View for HR REST Services"
+        type: string
+        visible: true
+
+      database_actions:
+        title: "Database Actions URL"
+        displayText: "Database Actions URL"
+        type: string
+        visible: true    

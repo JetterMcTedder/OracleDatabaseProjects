@@ -1,0 +1,1079 @@
+{
+	"info": {
+		"_postman_id": "a59e0a1e-2a78-47a3-bbb8-7a0a0bb26464",
+		"name": "HR Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "employees",
+			"item": [
+				{
+					"name": "Create Emp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"p_job_id\": \"IT_PROG\",\n  \"p_salary\": \"400\",\n  \"p_hire_date\": \"21-JUN-22\",\n  \"p_department_id\": \"40\",\n  \"p_last_name\": \"Franks2\",\n  \"p_email\": \"Frank.Franks55@franks.com\",\n  \"p_phone_number\": \"222-333-4444\",\n  \"p_first_name\": \"Frank\",\n  \"p_commission_pct\": \"\",\n  \"p_manager_id\": \"148\",\n  \"return_message\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://##ADB-HOSTNAME-HERE##-hrdb.adb.us-phoenix-1.oraclecloudapps.com/ords/admin/hr/employee/",
+							"protocol": "https",
+							"host": [
+								"##ADB-HOSTNAME-HERE##-hrdb",
+								"adb",
+								"us-phoenix-1",
+								"oraclecloudapps",
+								"com"
+							],
+							"path": [
+								"ords",
+								"admin",
+								"hr",
+								"employee",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Emps",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://##ADB-HOSTNAME-HERE##-hrdb.adb.us-phoenix-1.oraclecloudapps.com/ords/admin/hr/employee/",
+							"protocol": "https",
+							"host": [
+								"##ADB-HOSTNAME-HERE##-hrdb",
+								"adb",
+								"us-phoenix-1",
+								"oraclecloudapps",
+								"com"
+							],
+							"path": [
+								"ords",
+								"admin",
+								"hr",
+								"employee",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Emp by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://##ADB-HOSTNAME-HERE##-hrdb.adb.us-phoenix-1.oraclecloudapps.com/ords/admin/hr/employee/207",
+							"protocol": "https",
+							"host": [
+								"##ADB-HOSTNAME-HERE##-hrdb",
+								"adb",
+								"us-phoenix-1",
+								"oraclecloudapps",
+								"com"
+							],
+							"path": [
+								"ords",
+								"admin",
+								"hr",
+								"employee",
+								"207"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Emp by ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://##ADB-HOSTNAME-HERE##-hrdb.adb.us-phoenix-1.oraclecloudapps.com/ords/admin/hr/employee/207",
+							"protocol": "https",
+							"host": [
+								"##ADB-HOSTNAME-HERE##-hrdb",
+								"adb",
+								"us-phoenix-1",
+								"oraclecloudapps",
+								"com"
+							],
+							"path": [
+								"ords",
+								"admin",
+								"hr",
+								"employee",
+								"207"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Emp",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"p_employee_id\" : \"207\",\n  \"p_job_id\": \"IT_PROG\",\n  \"p_salary\": \"400\",\n  \"p_hire_date\": \"21-JUN-22\",\n  \"p_department_id\": \"40\",\n  \"p_last_name\": \"Franks2333333\",\n  \"p_email\": \"Frank.Franks22@franks.com\",\n  \"p_phone_number\": \"222-333-4444\",\n  \"p_first_name\": \"Frank\",\n  \"p_commission_pct\": \"\",\n  \"p_manager_id\": \"148\",\n  \"return_message\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://##ADB-HOSTNAME-HERE##-hrdb.adb.us-phoenix-1.oraclecloudapps.com/ords/admin/hr/employee/",
+							"protocol": "https",
+							"host": [
+								"##ADB-HOSTNAME-HERE##-hrdb",
+								"adb",
+								"us-phoenix-1",
+								"oraclecloudapps",
+								"com"
+							],
+							"path": [
+								"ords",
+								"admin",
+								"hr",
+								"employee",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Regions",
+			"item": [
+				{
+					"name": "Get Regions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://##ADB-HOSTNAME-HERE##-hrdb.adb.us-phoenix-1.oraclecloudapps.com/ords/admin/hr/regions/",
+							"protocol": "https",
+							"host": [
+								"##ADB-HOSTNAME-HERE##-hrdb",
+								"adb",
+								"us-phoenix-1",
+								"oraclecloudapps",
+								"com"
+							],
+							"path": [
+								"ords",
+								"admin",
+								"hr",
+								"regions",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Region by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://##ADB-HOSTNAME-HERE##-hrdb.adb.us-phoenix-1.oraclecloudapps.com/ords/admin/hr/regions/1",
+							"protocol": "https",
+							"host": [
+								"##ADB-HOSTNAME-HERE##-hrdb",
+								"adb",
+								"us-phoenix-1",
+								"oraclecloudapps",
+								"com"
+							],
+							"path": [
+								"ords",
+								"admin",
+								"hr",
+								"regions",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Region",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"p_region_name\": \"Space\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://##ADB-HOSTNAME-HERE##-hrdb.adb.us-phoenix-1.oraclecloudapps.com/ords/admin/hr/regions/",
+							"protocol": "https",
+							"host": [
+								"##ADB-HOSTNAME-HERE##-hrdb",
+								"adb",
+								"us-phoenix-1",
+								"oraclecloudapps",
+								"com"
+							],
+							"path": [
+								"ords",
+								"admin",
+								"hr",
+								"regions",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Region",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"p_region_id\": \"12\",\n  \"p_region_name\": \"Space and Beyond\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://##ADB-HOSTNAME-HERE##-hrdb.adb.us-phoenix-1.oraclecloudapps.com/ords/admin/hr/regions/",
+							"protocol": "https",
+							"host": [
+								"##ADB-HOSTNAME-HERE##-hrdb",
+								"adb",
+								"us-phoenix-1",
+								"oraclecloudapps",
+								"com"
+							],
+							"path": [
+								"ords",
+								"admin",
+								"hr",
+								"regions",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Region by ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://##ADB-HOSTNAME-HERE##-hrdb.adb.us-phoenix-1.oraclecloudapps.com/ords/admin/hr/regions/6",
+							"protocol": "https",
+							"host": [
+								"##ADB-HOSTNAME-HERE##-hrdb",
+								"adb",
+								"us-phoenix-1",
+								"oraclecloudapps",
+								"com"
+							],
+							"path": [
+								"ords",
+								"admin",
+								"hr",
+								"regions",
+								"6"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Countries",
+			"item": [
+				{
+					"name": "Get Countries",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://##ADB-HOSTNAME-HERE##-hrdb.adb.us-phoenix-1.oraclecloudapps.com/ords/admin/hr/countries/",
+							"protocol": "https",
+							"host": [
+								"##ADB-HOSTNAME-HERE##-hrdb",
+								"adb",
+								"us-phoenix-1",
+								"oraclecloudapps",
+								"com"
+							],
+							"path": [
+								"ords",
+								"admin",
+								"hr",
+								"countries",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Country by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://##ADB-HOSTNAME-HERE##-hrdb.adb.us-phoenix-1.oraclecloudapps.com/ords/admin/hr/countries/US",
+							"protocol": "https",
+							"host": [
+								"##ADB-HOSTNAME-HERE##-hrdb",
+								"adb",
+								"us-phoenix-1",
+								"oraclecloudapps",
+								"com"
+							],
+							"path": [
+								"ords",
+								"admin",
+								"hr",
+								"countries",
+								"US"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Country",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"p_region_id\": \"1\",\n  \"p_country_id\": \"FF\",\n  \"p_country_name\": \"FFFFFF\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://##ADB-HOSTNAME-HERE##-hrdb.adb.us-phoenix-1.oraclecloudapps.com/ords/admin/hr/countries/",
+							"protocol": "https",
+							"host": [
+								"##ADB-HOSTNAME-HERE##-hrdb",
+								"adb",
+								"us-phoenix-1",
+								"oraclecloudapps",
+								"com"
+							],
+							"path": [
+								"ords",
+								"admin",
+								"hr",
+								"countries",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Country",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"p_region_id\": \"1\",\n  \"p_country_id\": \"SP\",\n  \"p_country_name\": \"Space\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://##ADB-HOSTNAME-HERE##-hrdb.adb.us-phoenix-1.oraclecloudapps.com/ords/admin/hr/countries/",
+							"protocol": "https",
+							"host": [
+								"##ADB-HOSTNAME-HERE##-hrdb",
+								"adb",
+								"us-phoenix-1",
+								"oraclecloudapps",
+								"com"
+							],
+							"path": [
+								"ords",
+								"admin",
+								"hr",
+								"countries",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Country",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://##ADB-HOSTNAME-HERE##-hrdb.adb.us-phoenix-1.oraclecloudapps.com/ords/admin/hr/countries/SP",
+							"protocol": "https",
+							"host": [
+								"##ADB-HOSTNAME-HERE##-hrdb",
+								"adb",
+								"us-phoenix-1",
+								"oraclecloudapps",
+								"com"
+							],
+							"path": [
+								"ords",
+								"admin",
+								"hr",
+								"countries",
+								"SP"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Departments",
+			"item": [
+				{
+					"name": "Get Departments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://##ADB-HOSTNAME-HERE##-hrdb.adb.us-phoenix-1.oraclecloudapps.com/ords/admin/hr/departments/",
+							"protocol": "https",
+							"host": [
+								"##ADB-HOSTNAME-HERE##-hrdb",
+								"adb",
+								"us-phoenix-1",
+								"oraclecloudapps",
+								"com"
+							],
+							"path": [
+								"ords",
+								"admin",
+								"hr",
+								"departments",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Department by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://##ADB-HOSTNAME-HERE##-hrdb.adb.us-phoenix-1.oraclecloudapps.com/ords/admin/hr/departments/10",
+							"protocol": "https",
+							"host": [
+								"##ADB-HOSTNAME-HERE##-hrdb",
+								"adb",
+								"us-phoenix-1",
+								"oraclecloudapps",
+								"com"
+							],
+							"path": [
+								"ords",
+								"admin",
+								"hr",
+								"departments",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Department",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"p_department_name\": \"Zoo\",\n  \"p_location_id\": \"1700\",\n  \"p_manager_id\": \"200\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://##ADB-HOSTNAME-HERE##-hrdb.adb.us-phoenix-1.oraclecloudapps.com/ords/admin/hr/departments/",
+							"protocol": "https",
+							"host": [
+								"##ADB-HOSTNAME-HERE##-hrdb",
+								"adb",
+								"us-phoenix-1",
+								"oraclecloudapps",
+								"com"
+							],
+							"path": [
+								"ords",
+								"admin",
+								"hr",
+								"departments",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Department",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"p_department_name\": \"ZooZooZoo\",\n  \"p_department_id\": \"280\",\n  \"p_location_id\": \"1700\",\n  \"p_manager_id\": \"200\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://##ADB-HOSTNAME-HERE##-hrdb.adb.us-phoenix-1.oraclecloudapps.com/ords/admin/hr/departments/",
+							"protocol": "https",
+							"host": [
+								"##ADB-HOSTNAME-HERE##-hrdb",
+								"adb",
+								"us-phoenix-1",
+								"oraclecloudapps",
+								"com"
+							],
+							"path": [
+								"ords",
+								"admin",
+								"hr",
+								"departments",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Department",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://##ADB-HOSTNAME-HERE##-hrdb.adb.us-phoenix-1.oraclecloudapps.com/ords/admin/hr/departments/2121",
+							"protocol": "https",
+							"host": [
+								"##ADB-HOSTNAME-HERE##-hrdb",
+								"adb",
+								"us-phoenix-1",
+								"oraclecloudapps",
+								"com"
+							],
+							"path": [
+								"ords",
+								"admin",
+								"hr",
+								"departments",
+								"2121"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Locations",
+			"item": [
+				{
+					"name": "Get Location by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://##ADB-HOSTNAME-HERE##-hrdb.adb.us-phoenix-1.oraclecloudapps.com/ords/admin/hr/locations/2000",
+							"protocol": "https",
+							"host": [
+								"##ADB-HOSTNAME-HERE##-hrdb",
+								"adb",
+								"us-phoenix-1",
+								"oraclecloudapps",
+								"com"
+							],
+							"path": [
+								"ords",
+								"admin",
+								"hr",
+								"locations",
+								"2000"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Location by ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://##ADB-HOSTNAME-HERE##-hrdb.adb.us-phoenix-1.oraclecloudapps.com/ords/admin/hr/locations/4000",
+							"protocol": "https",
+							"host": [
+								"##ADB-HOSTNAME-HERE##-hrdb",
+								"adb",
+								"us-phoenix-1",
+								"oraclecloudapps",
+								"com"
+							],
+							"path": [
+								"ords",
+								"admin",
+								"hr",
+								"locations",
+								"4000"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Locations",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://##ADB-HOSTNAME-HERE##-hrdb.adb.us-phoenix-1.oraclecloudapps.com/ords/admin/hr/locations/",
+							"protocol": "https",
+							"host": [
+								"##ADB-HOSTNAME-HERE##-hrdb",
+								"adb",
+								"us-phoenix-1",
+								"oraclecloudapps",
+								"com"
+							],
+							"path": [
+								"ords",
+								"admin",
+								"hr",
+								"locations",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Location",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"p_country_id\": \"US\",\n  \"p_city\": \"Anytowne\",\n  \"p_postal_code\": \"33221\",\n  \"p_state_province\": \"AZ\",\n  \"p_street_address\": \"123 Any Street\",\n  \"return_message\": \"<VALUE>\" \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://##ADB-HOSTNAME-HERE##-hrdb.adb.us-phoenix-1.oraclecloudapps.com/ords/admin/hr/locations/",
+							"protocol": "https",
+							"host": [
+								"##ADB-HOSTNAME-HERE##-hrdb",
+								"adb",
+								"us-phoenix-1",
+								"oraclecloudapps",
+								"com"
+							],
+							"path": [
+								"ords",
+								"admin",
+								"hr",
+								"locations",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Location",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"p_country_id\": \"US\",\n  \"p_city\": \"Anytownzz\",\n  \"p_postal_code\": \"33221\",\n  \"p_state_province\": \"AZ\",\n  \"p_location_id\": \"3400\",\n  \"p_street_address\": \"123 Any Street\",\n  \"return_message\": \"<VALUE>\" \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://##ADB-HOSTNAME-HERE##-hrdb.adb.us-phoenix-1.oraclecloudapps.com/ords/admin/hr/locations/",
+							"protocol": "https",
+							"host": [
+								"##ADB-HOSTNAME-HERE##-hrdb",
+								"adb",
+								"us-phoenix-1",
+								"oraclecloudapps",
+								"com"
+							],
+							"path": [
+								"ords",
+								"admin",
+								"hr",
+								"locations",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Jobs",
+			"item": [
+				{
+					"name": "Get Job by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://##ADB-HOSTNAME-HERE##-hrdb.adb.us-phoenix-1.oraclecloudapps.com/ords/admin/hr/jobs/AD_PRES",
+							"protocol": "https",
+							"host": [
+								"##ADB-HOSTNAME-HERE##-hrdb",
+								"adb",
+								"us-phoenix-1",
+								"oraclecloudapps",
+								"com"
+							],
+							"path": [
+								"ords",
+								"admin",
+								"hr",
+								"jobs",
+								"AD_PRES"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Job by ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://##ADB-HOSTNAME-HERE##-hrdb.adb.us-phoenix-1.oraclecloudapps.com/ords/admin/hr/jobs/OWN",
+							"protocol": "https",
+							"host": [
+								"##ADB-HOSTNAME-HERE##-hrdb",
+								"adb",
+								"us-phoenix-1",
+								"oraclecloudapps",
+								"com"
+							],
+							"path": [
+								"ords",
+								"admin",
+								"hr",
+								"jobs",
+								"OWN"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Jobs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://##ADB-HOSTNAME-HERE##-hrdb.adb.us-phoenix-1.oraclecloudapps.com/ords/admin/hr/jobs/",
+							"protocol": "https",
+							"host": [
+								"##ADB-HOSTNAME-HERE##-hrdb",
+								"adb",
+								"us-phoenix-1",
+								"oraclecloudapps",
+								"com"
+							],
+							"path": [
+								"ords",
+								"admin",
+								"hr",
+								"jobs",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Job",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"p_job_id\": \"OWN\",\n  \"p_min_salary\": \"1\",\n  \"p_job_title\": \"Owner\",\n  \"p_max_salary\": \"99999\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://##ADB-HOSTNAME-HERE##-hrdb.adb.us-phoenix-1.oraclecloudapps.com/ords/admin/hr/jobs/",
+							"protocol": "https",
+							"host": [
+								"##ADB-HOSTNAME-HERE##-hrdb",
+								"adb",
+								"us-phoenix-1",
+								"oraclecloudapps",
+								"com"
+							],
+							"path": [
+								"ords",
+								"admin",
+								"hr",
+								"jobs",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Job",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"p_job_id\": \"OWN\",\n  \"p_min_salary\": \"1\",\n  \"p_job_title\": \"Owner\",\n  \"p_max_salary\": \"99998\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://##ADB-HOSTNAME-HERE##-hrdb.adb.us-phoenix-1.oraclecloudapps.com/ords/admin/hr/jobs/",
+							"protocol": "https",
+							"host": [
+								"##ADB-HOSTNAME-HERE##-hrdb",
+								"adb",
+								"us-phoenix-1",
+								"oraclecloudapps",
+								"com"
+							],
+							"path": [
+								"ords",
+								"admin",
+								"hr",
+								"jobs",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Biz Logic",
+			"item": [
+				{
+					"name": "Check Salary",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://##ADB-HOSTNAME-HERE##-hrdb.adb.us-phoenix-1.oraclecloudapps.com/ords/admin/hr/salary/?p_job_id=IT_PROG&p_salary=9999",
+							"protocol": "https",
+							"host": [
+								"##ADB-HOSTNAME-HERE##-hrdb",
+								"adb",
+								"us-phoenix-1",
+								"oraclecloudapps",
+								"com"
+							],
+							"path": [
+								"ords",
+								"admin",
+								"hr",
+								"salary",
+								""
+							],
+							"query": [
+								{
+									"key": "p_job_id",
+									"value": "IT_PROG"
+								},
+								{
+									"key": "p_salary",
+									"value": "9999"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Office",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"p_location_street_address\": \"45 West Street\",\n  \"p_location_postal_code\": \"97654\",\n  \"p_location_city\": \"Waimea\",\n  \"p_location_state\": \"HI\",\n  \"p_country_id\": \"SP\",\n  \"p_country_name\": \"Space\",\n  \"p_region_id\": \"\",\n  \"p_region_name\": \"APAC\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://##ADB-HOSTNAME-HERE##-hrdb.adb.us-phoenix-1.oraclecloudapps.com/ords/admin/hr/office/",
+							"protocol": "https",
+							"host": [
+								"##ADB-HOSTNAME-HERE##-hrdb",
+								"adb",
+								"us-phoenix-1",
+								"oraclecloudapps",
+								"com"
+							],
+							"path": [
+								"ords",
+								"admin",
+								"hr",
+								"office",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Office by ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"p_location_street_address\": \"45 West Street\",\n  \"p_location_postal_code\": \"97654\",\n  \"p_location_city\": \"Waimea\",\n  \"p_location_state\": \"HI\",\n  \"p_country_id\": \"SP\",\n  \"p_country_name\": \"\",\n  \"p_region_id\": \"10\",\n  \"p_region_name\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://##ADB-HOSTNAME-HERE##-hrdb.adb.us-phoenix-1.oraclecloudapps.com/ords/admin/hr/office/1100",
+							"protocol": "https",
+							"host": [
+								"##ADB-HOSTNAME-HERE##-hrdb",
+								"adb",
+								"us-phoenix-1",
+								"oraclecloudapps",
+								"com"
+							],
+							"path": [
+								"ords",
+								"admin",
+								"hr",
+								"office",
+								"1100"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Offices",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"p_location_street_address\": \"45 West Street\",\n  \"p_location_postal_code\": \"97654\",\n  \"p_location_city\": \"Waimea\",\n  \"p_location_state\": \"HI\",\n  \"p_country_id\": \"SP\",\n  \"p_country_name\": \"\",\n  \"p_region_id\": \"10\",\n  \"p_region_name\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://##ADB-HOSTNAME-HERE##-hrdb.adb.us-phoenix-1.oraclecloudapps.com/ords/admin/hr/office/",
+							"protocol": "https",
+							"host": [
+								"##ADB-HOSTNAME-HERE##-hrdb",
+								"adb",
+								"us-phoenix-1",
+								"oraclecloudapps",
+								"com"
+							],
+							"path": [
+								"ords",
+								"admin",
+								"hr",
+								"office",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

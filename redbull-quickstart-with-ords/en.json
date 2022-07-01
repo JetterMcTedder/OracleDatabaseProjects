@@ -1,0 +1,2073 @@
+{
+    "solutions": {
+        "autonomousDatawarehouse": {
+            "longDescription": "Provides a quick way to create a basic Oracle Cloud Infrastructure Autonomous Data Warehouse database setup.",
+            "solutionName": "Autonomous Data Warehouse Database",
+            "stackDescription": "Provision an Autonomous Data Warehouse database",
+            "variables": {
+                "adb_disp_name": {
+                "title": "Autonomous Database Display Name",
+                "description": "The display name of the Autonomous Database",
+                "default": "Sample Autonomous Database"
+                },
+                "adb_db_name": {
+                "title": "Autonomous Database Name",
+                "description": "The database name of the Autonomous Database"
+                },
+                "adb_data_warehouse_disp_name": {
+                "title": "Autonomous Data Warehouse Display Name",
+                "description": "The display name of the Autonomous Data Warehouse",
+                "default": "Sample Autonomous Data Warehouse"
+                },
+                "adb_data_warehouse_db_name": {
+                "title": "Autonomous Database Name",
+                "description": "The database name of the Autonomous Data Warehouse."
+                },
+                "databaseVersion": {
+                "title": "Autonomous Database Version",
+                "description": "The version of the autonomous database"
+                }
+            }
+        },
+        "adw-oac": {
+            "longDescription": "This architecture uses Oracle Autonomous Data Warehouse to load and optimize data from multiple flat-file sources into a centralized data warehouse and then uses Oracle Analytics Cloud to analyze the data to provide actionable insights. <a href='https://docs.oracle.com/en/solutions/oci-spreadsheet-analysis/'>Learn more</a>",
+            "solutionName": "Departmental Data Warehousing",
+            "stackDescription": "Provision Autonomous Data Warehouse and Oracle Analytics Cloud to ingest data from multiple flat-file sources and analyze it",
+            "variables": {
+                "autonomous_database_cpu_core_count": {
+                    "title": "OCPU Count",
+                    "description": "The number of OCPU cores to enable. Available cores are subject to your tenancy's service limits."
+                },
+                "autonomous_database_admin_password": {
+                    "title": "Autonomous Database Admin Password",
+                    "description": "The name must contain only letters and numbers, starting with a letter. Maximum of 14 characters."
+                },
+                "autonomous_database_display_name": {
+                    "title": "Display Name",
+                    "description": "A user-friendly name to help you easily identify the resource."
+                },
+                "autonomous_database_db_version": {
+                    "title": "Autonomous Database DB Version",
+                    "description": "Choose database version"
+                },
+                "autonomous_database_is_auto_scaling_enabled": {
+                    "title": "Auto Scaling",
+                    "description": "Allows system to use up to three times the provisioned number of cores as the workload increases."
+                },
+                "autonomous_database_data_storage_size_in_tbs": {
+                    "title": "Storage (TB)",
+                    "description": "The amount of storage to allocate."
+                },
+                "autonomous_database_license_model": {
+                    "title": "Choose a License Type"
+                },
+                "autonomous_database_data_safe_status": {
+                    "title": "Autonomous Database Data Safe Status",
+                    "description": "Do you wish to register the Autonomous Data Warehouse with Oracle Data Safe?"
+                },
+                "my_public_ip": {
+                    "title": "Public IP Address",
+                    "description": "Enter your computer’s public IP address."
+                },
+                "analytics_instance_capacity_capacity_type": {
+                    "title": "Capacity Type",
+                    "description": "Choose how you want to size the Analytics instance."
+                },
+                "analytics_instance_capacity_capacity_value": {
+                    "title": "Capacity Value",
+                    "description": "Enter the number of OCPUs."
+                },
+                "analytics_instance_feature_set": {
+                    "title": "Feature Set",
+                    "description": "Choose the features you want to deploy. Self-service analytics deploys an instance with data visualization. Enterprise analytics deploys an instance with enterprise modeling, reporting, and data visualization."
+                },
+                "analytics_instance_license_type": {
+                    "title": "License Type",
+                    "description": "Select whether you want to use your Oracle Middleware on-premises license with Oracle Analytics Cloud and be charged the Bring Your Own License (BYOL) rate or use an Oracle Cloud license for Oracle Analytics Cloud."
+                },
+                "analytics_instance_name": {
+                    "title": "Instance Name",
+                    "description": "Enter a name for the Oracle Analytics Cloud instance."
+                },
+                "analytics_instance_idcs_access_token": {
+                    "title": "Analytics Instance IDCS Access Token",
+                    "description": "Paste the IDCS Access Token. You should download the IDCS Access token as mentioned https://docs.oracle.com/en/cloud/paas/identity-cloud/uaids/generate-personal-access-tokens.html"
+                }
+            }
+        },
+        "apmSyntheticDvp": {
+            "longDescription": "Provides an easy way to set up a Dedicated Vantage Point in Application Performance Monitoring and register it with APM Domains.",
+            "groupTitles": {
+                "autoUpgradeConfiguration": "Auto Upgrade DVP Artifacts",
+                "domainConfiguration": "Domain Configuration",
+                "logConfiguration": "Log Configuration",
+                "okeConfiguration": "OKE Configuration",
+                "proxyConfiguration": "Proxy Configuration",
+                "vaultConfiguration": "Vault Configuration",
+                "vcnConfiguration": "VCN Configuration",
+                "stackConfiguration": "Dedicated Vantage Point Name"
+            },
+            "solutionName": "Application Performance Monitoring Synthetic Dedicated Vantage Point",
+            "stackDescription": "Provision the infrastructure and prerequisites for a Dedicated Vantage Point in Application Performance Monitoring.",
+            "variables": {
+                "dvp_current_user": {
+                    "title": "User Name",
+                    "description": "User name of the user creating the stack."
+                },
+                "dvp_tenant": {
+                    "title": "Tenant",
+                    "description": "Tenancy in which the stack will be created."
+                },
+                "dvp_stack_config_name": {
+                    "title": "Dedicated Vantage Point Name",
+                    "description": "A constant unique name of dedicated vantage point, which will be used to register Dedicated Vantage Point with APM domains and also prefixed to the infrastructure resources created by the stack."
+                },
+                "dvp_network_compartment": {
+                    "title": "Network Compartment",
+                    "description": "Network compartment in which the Virtual Cloud Network (VCN) resides. NOTE: In edit, change in network compartment is not supported."
+                },
+                "dvp_vcn": {
+                    "title": "VCN",
+                    "description": "VCN in which the Dedicated Vantage Point cluster will be created. NOTE: In edit, change in VCN name is not supported."
+                },
+                "dvp_worker_node_subnet": {
+                    "title": "Cluster Worker Nodes Subnet",
+                    "description": "Subnet used by the worker nodes in the Dedicated Vantage Point cluster. NOTE: In edit, change in private subnet is not supported."
+                },
+                "dvp_kubernetes_api_endpoint_subnet": {
+                    "title": "Public Kubernetes API Endpoint Subnet",
+                    "description": "Public subnet to host the Oracle Kubernetes Engine (OKE) API public endpoint. NOTE: In edit, change in public subnet is not supported."
+                },
+                "dvp_auth_token": {
+                    "title": "Auth Token",
+                    "description": "Auth Token for the user executing this stack, that will be used to push/pull APM Synthetic images (Synthetics Deployment Manager, Synthetics Side Agent and Synthetics Rest Agent) to/from OCIR. Refer <a href=https://docs.oracle.com/en-us/iaas/Content/Registry/Tasks/registrygettingauthtoken.htm>this</a> for generating an Auth Token.",
+                    "url": "https://docs.oracle.com/en-us/iaas/Content/Registry/Tasks/registrygettingauthtoken.htm"
+                },
+                "dvp_data_keys": {
+                    "title": "Domain Private Data Keys",
+                    "description": "List of data key objects in JSON format."
+                },
+                "cluster_kubernetes_version": {
+                    "title": "Cluster Kubernetes Version",
+                    "description": "Kubernetes Version of Cluster Worker Nodes. NOTE: Downgrade of kubernetes version is not supported."
+                },
+                "dvp_node_pool_shape": {
+                    "title": "Dedicated Vantage Point Node Pool Compute Shape",
+                    "description": "Compute instance shape of the worker nodes to be created in the Dedicated Vantage Point node pool."
+                },
+                "dvp_node_pool_size": {
+                    "title": "Dedicated Vantage Point Node Pool Size",
+                    "description": "Number of worker nodes in the Dedicated Vantage Point node pool."
+                },
+                "dvp_use_endpoint_proxy": {
+                    "title": "Use Target URL Proxy?",
+                    "description": "If monitored targets are behind a proxy server, then provide the proxy details to access them."
+                },
+                "dvp_is_endpoint_https_proxy": {
+                    "title": "is https proxy?",
+                    "description": "If proxy access is secured."
+                },
+                "dvp_endpoint_proxy_server": {
+                    "title": "Target proxy server url",
+                    "description": "URL for target proxy server."
+                },
+                "dvp_endpoint_proxy_port": {
+                    "title": "Target proxy server Port",
+                    "description": "Enter port number for target proxy server, example: 8080"
+                },
+                "dvp_endpoint_bypass_proxy": {
+                    "title": "Bypass url list for target proxy",
+                    "description": "Enter comma-separated hosts to bypass proxy settings. You can also use an asterisk * to replace a string. Example: 127.0.0.1,localhost,*example.com"
+                },
+                "dvp_endpoint_proxy_type": {
+                    "title": "Proxy Auth Type",
+                    "description": "Select the authentication type for the proxy. Default is NONE."
+                },
+                "dvp_endpoint_proxy_user": {
+                    "title": "Target Proxy User Name",
+                    "description": "Enter user name for Target Proxy."
+                },
+                "dvp_endpoint_proxy_password": {
+                    "title": "Target Proxy Password",
+                    "description": "Proxy password for authentication."
+                },
+                "dvp_use_collector_proxy": {
+                    "title": "Use Metric Data Upload Endpoint Proxy?",
+                    "description": "Provide proxy details to upload monitor metrics."
+                },
+                "dvp_is_collector_https_proxy": {
+                    "title": "is https proxy?",
+                    "description": "If proxy access is secured."
+                },
+                "dvp_collector_proxy_server": {
+                    "title": "Metrics Data Upload Endpoint Proxy Server",
+                    "description": "Enter proxy server for communication with the APM Collector. Example https://127.0.0.1."
+                },
+                "dvp_collector_proxy_port": {
+                    "title": "Metrics Data Upload Endpoint Proxy Port",
+                    "description": "Application Performance Monitoring metrics data upload proxy port"
+                },
+                "dvp_collector_bypass_proxy": {
+                    "title": "Metrics Data Upload Endpoint Bypass Proxy",
+                    "description": "Enter comma-separated hosts to bypass proxy settings. You can also use an asterisk * to replace a string. Example: 127.0.0.1,localhost,*example.com"
+                },
+                "dvp_collector_proxy_type": {
+                    "title": "Proxy Auth Type",
+                    "description": "Proxy authentication type."
+                },
+                "dvp_collector_proxy_user": {
+                    "title": "Metrics Data Upload Endpoint Proxy User",
+                    "description": "User name of the APM collector proxy user."
+                },
+                "dvp_collector_proxy_password": {
+                    "title": "Metrics Data Upload Endpoint Proxy Password",
+                    "description": "Password of the metrics data upload proxy user."
+                },
+                "dvp_node_pool_ssh_public_key": {
+                    "title": "SSH Public Key for Cluster Worker Nodes",
+                    "description": "Provide the SSH Public Key for Cluster Worker Nodes. NOTE: It will be applied only to new nodes."
+                },
+                "dvp_is_logging_enabled": {
+                    "title": "Enable Logging?",
+                    "description": "This will enable uploading logs to OCI Logging service."
+                },
+                "dvp_is_autoupgrade_enabled": {
+                    "title": "Enable Auto Upgrade?",
+                    "description": "This will enable auto upgrade of DVP deployment manager and monitors to latest version. Default is true."
+                },
+                "dvp_enable_vault": {
+                    "title": "Enable Vault Support?",
+                    "description": "Use a vault to store secrets and manage encrypted resources. NOTE: In edit, only enable vault operation is supported."
+                },
+                "dvp_use_existing_vault": {
+                    "title": "Use Existing Vault?",
+                    "description": "Use an existing vault to store secrets and manage encrypted resources. If this option is not selected, then a new vault will be created."
+                },
+                "dvp_existing_vault_id": {
+                    "title": "Select a vault",
+                    "description": "A new master encryption key will be created."
+                },
+                "dvp_vault_name": {
+                    "title": "Vault Name",
+                    "description": "A new vault and a master encryption key will be created."
+                },
+                "dvp_vault_type": {
+                    "title": "Vault Type"
+                }
+            }
+        },
+        "dataScience": {
+            "stackDescription": "Provision Data Science and its prerequisites",
+            "longDescription": "Provides a quick way to set up Data Science with all of its prerequisites (IAM groups and policies plus the API Gateway, Functions, and Networking services). <a href='https://github.com/oracle-quickstart/oci-ods-orm'>Learn more</a>",
+            "solutionName": "Data Science",
+            "groupTitles": {
+                "iamGroup": "IAM Group and Policy Configuration",
+                "networkConfiguration": "Network Configuration",
+                "odsConfiguration": "Project and Notebook Configuration",
+                "apiConfiguration": "Functions and API Gateway Configuration",
+                "vaultConfiguration": "Vault Configuration"
+            },
+            "variables": {
+                "enable_ods": {
+                "title": "Create a project and notebook session?"
+                },
+                "ods_compute_shape": {
+                "title": "Notebook Compute Shape"
+                },
+                "ods_storage_size": {
+                "title": "Notebook Storage Size",
+                "description": "The size must be between 50 GB and 1,024 GB (1 TB)"
+                },
+                "ods_number_of_notebooks": {
+                "title": "How many notebooks would you like to create?"
+                },
+                "ods_project_name": {
+                "title": "Project Name"
+                },
+                "ods_notebook_name": {
+                "title": "Notebook Session Name"
+                },
+                "ods_vcn_use_existing": {
+                "title": "Use Existing VCN?"
+                },
+                "ods_vcn_existing": {
+                "title": "Select VCN"
+                },
+                "ods_subnet_public_existing": {
+                "title": "Select Your Public VCN",
+                "description": "This VCN hosts the API gateway."
+                },
+                "ods_subnet_private_existing": {
+                "title": "Select Your Private VCN",
+                "description": "This VCN hosts the project, notebooks, and Functions application."
+                },
+                "ods_vcn_name": {
+                "title": "VCN Name"
+                },
+                "ods_vcn_cidr": {
+                "title": "VCN CIDR Space"
+                },
+                "ods_subnet_public_name": {
+                "title": "Public Subnet Name",
+                "description": "This subnet hosts the API gateway.",
+                "default": "Data Science - Public"
+                },
+                "ods_subnet_public_cidr": {
+                "title": "Public Subnet CIDR Space"
+                },
+                "ods_subnet_private_name": {
+                "title": "Private Subnet Name",
+                "description": "This subnet hosts the project, notebooks, and Functions application.",
+                "default": "Data Science - Private"
+                },
+                "ods_subnet_private_cidr": {
+                "title": "Private Subnet CIDR Space"
+                },
+                "enable_functions_apigateway": {
+                "title": "Provision Functions and API Gateway?"
+                },
+                "functions_app_name": {
+                "title": "Application Name",
+                "description": "Do not use spaces."
+                },
+                "apigateway_name": {
+                "title": "API Gateway Name"
+                },
+                "ods_group_name": {
+                "title": "Group Name for Security Policies",
+                "description": "Do not use spaces."
+                },
+                "ods_dynamic_group_name": {
+                "title": "Dynamic Group Name for Functions and API Gateway Access to Artifacts",
+                "description": "Do not use spaces."
+                },
+                "ods_policy_name": {
+                "title": "Policy Name (Compartment Level)",
+                "description": "Do not use spaces."
+                },
+                "ods_root_policy_name": {
+                "title": "Root Policy Name (Tenancy Level)",
+                "description": "Do not use spaces."
+                },
+                "enable_vault_policies": {
+                "title": "Enable Vault Support?",
+                "description": "Use a vault to store secrets and manage encrypted resources."
+                },
+                "ods_vault_name": {
+                "title": "Vault Name"
+                },
+                "ods_vault_type": {
+                "title": "Vault Type"
+                },
+                "enable_create_vault_master_key": {
+                "title": "Create a master encryption key in the vault?"
+                },
+                "ods_vault_master_key_name": {
+                "title": "Master Encryption Key Name",
+                "default": "Data Science Master Key"
+                },
+                "ods_vault_master_key_length": {
+                "title": "Length of the Master Encryption Key"
+                },
+                "use_existing_vault": {
+                "title": "Use Existing vault?",
+                "description": "Use a pre-existing vault in the current compartment."
+                },
+                "existing_vault": {
+                "title": "Select a vault"
+                }
+            }
+        },
+        "hubSpoke": {
+            "longDescription": "Provides an easy way to set up a hub-and-spoke network topology connecting to multiple VCNs in the same region. Common use cases for this topology include segregating environments for different workloads (such as development and production), segregating data to meet compliance requirements (such as PCI DSS and HIPAA), and enabling IT infrastructure shared services (such as email and IAM).  <a href='https://docs.oracle.com/en/solutions/hub-spoke-network/index.html'>Learn more</a>",
+            "stackDescription": "Provision a hub-and-spoke network topology in Oracle Cloud Infrastructure",
+            "solutionName": "Hub-and-Spoke Network Topology",
+            "variables": {
+                "ssh_public_key": {
+                "title": "SSH Public Key"
+                },
+                "igw_display_name": {
+                "title": "Hub VCN Internet Gateway Name"
+                },
+                "hub_vcn_cidr_block": {
+                "title": "Hub VCN CIDR Block"
+                },
+                "hub_vcn_dns_label": {
+                "title": "Hub VCN DNS Label"
+                },
+                "hub_vcn_display_name": {
+                "title": "Hub VCN Name"
+                },
+                "hub_subnet_pub01_cidr_block": {
+                "title": "PUB Subnet CIDR Block"
+                },
+                "hub_subnet_pub01_display_name": {
+                "title": "PUB Subnet Display Name"
+                },
+                "spoke01_vcn_cidr_block": {
+                "title": "Spoke 1 VCN CIDR Block"
+                },
+                "spoke01_vcn_dns_label": {
+                "title": "Spoke 1 VCN DNS Label"
+                },
+                "spoke01_vcn_display_name": {
+                "title": "Spoke 1 VCN Display Name"
+                },
+                "spoke01_subnet_priv01_cidr_block": {
+                "title": "Spoke 1 VCN Private Subnet CIDR Block"
+                },
+                "spoke01_subnet_priv01_display_name": {
+                "title": "Spoke 1 VCN Private Subnet Display Name"
+                },
+                "spoke02_vcn_cidr_block": {
+                "title": "Spoke 2 VCN CIDR Block"
+                },
+                "spoke02_vcn_dns_label": {
+                "title": "Spoke 2 VCN DNS Label"
+                },
+                "spoke02_vcn_display_name": {
+                "title": "Spoke 2 VCN Display Name"
+                },
+                "spoke02_subnet_priv01_cidr_block": {
+                "title": "Spoke 2 VCN Private Subnet CIDR Block"
+                },
+                "spoke02_subnet_priv01_display_name": {
+                "title": "Spoke 2 VCN Private Subnet Display Name"
+                },
+                "InstanceShape": {
+                "title": "Instance Shape",
+                "description": "A shape is a template that determines the number of CPUs, amount of memory, and other resources allocated to Bastion instance."
+                },
+                "instance_os": {
+                "title": "Image OS",
+                "description": "The OS image installed on the Bastion instance."
+                }
+            }
+        },
+        "sampleECommerceWithAlwaysFree": {
+            "longDescription": "Deploys an e-commerce application on Oracle Cloud Infrastructure. The stack creates all the required resources and configures the application on the created resources. The application runs using only Always Free Oracle Cloud resources. <a href='https://docs.oracle.com/en/solutions/cloud-native-ecommerce/index.html'>Learn more</a>",
+            "solutionName": "Sample E-Commerce Application",
+            "stackDescription": "Deploy a sample e-commerce application using Always Free Oracle Cloud resources",
+            "variables": {
+                "database_name": {
+                    "title": "Database Name",
+                    "description": "Name of the Autonomous Database instance"
+                },
+                "num_nodes": {
+                    "title": "Node Count",
+                    "description": "Choose the number of compute instances to deploy."
+                },
+                "generate_public_ssh_key": {
+                    "title": "Auto generate public ssh key?",
+                    "description": "Auto generate a public key and assign to the compute instances. Uncheck to provide your own public key or leave blank to not use any attach any key to the compute instance."
+                },
+                "ssh_public_key": {
+                    "title": "SSH Public Key",
+                    "description": "The public SSH key for the key-pair that you want to use, if you wish to login to the instances over SSH."
+                }
+            },
+            "outputGroups": {
+                "title": "MuShop App details"
+            },
+            "outputs": {
+                "vnic_public_ip": {
+                "title": "VNIC Public IP",
+                "displayText": "Password for the VNIC"
+                },
+                "lb_public_ip": {
+                "title": "Load Balancer Public IP",
+                "displayText": "Load Balancer Public IP"
+                },
+                "generated_private_key_pem": {
+                "title": "Generated Private Key for SSH Access",
+                "displayText": "Generated Private Key for SSH access to compute nodes"
+                }
+            }
+        },
+        "autonomousTransactionProcessing": {
+            "longDescription": "Provides a quick way to create an Autonomous Transaction Processing database.",
+            "solutionName": "Autonomous Transaction Processing Database",
+            "stackDescription": "Provision an Autonomous Transaction Processing database",
+            "variables": {
+                "atp_disp_name": {
+                "title": "Autonomous Database Display Name",
+                "description": "The display name of the Autonomous Database",
+                "default": "Sample Autonomous Database"
+                },
+                "autonomous_data_warehouse_db_name": {
+                "title": "Autonomous Database Name",
+                "description": "The database name of the Autonomous Data Warehouse."
+                },
+                "autonomous_data_warehouse_display_name": {
+                "title": "Autonomous Data Warehouse Display Name",
+                "description": "The display name of the Autonomous Data Warehouse."
+                },
+                "autonomous_database_db_name": {
+                "title": "Autonomous Database Name",
+                "description": "The database name of the Autonomous Database."
+                },
+                "autonomous_database_display_name": {
+                "title": "Autonomous Database Display Name",
+                "description": "The display name of the Autonomous Database."
+                },
+                "databaseVersion": {
+                "title": "Autonomous Database Version",
+                "description": "The version of the autonomous database"
+                }
+            }
+        },
+        "defaultVCN": {
+            "longDescription": "Provides a quick way to create a basic Oracle Cloud Infrastructure virtual cloud network (VCN) setup. This VCN contains a public subnet in each availability domain, with routing to an internet gateway.",
+            "solutionName": "Default VCN",
+            "stackDescription": "Provision a VCN that includes a default route table, DHCP options, and subnets",
+            "variables": {
+                "vcn_display_name": {
+                "title": "Virtual Network Display Name",
+                "description": "Display name of the VCN"
+                },
+                "vcn_cidr": {
+                "title": "VCN CIDR",
+                "description": "A single, contiguous IPv4 CIDR block of your choice for the VCN"
+                },
+                "subnet_dns_label": {
+                "title": "Subnet DNS Label",
+                "description": "A DNS label for the subnet, used in conjunction with the VNIC's hostname and subnet's DNS label to form a fully qualified domain name (FQDN) for each VNIC within this subnet"
+                },
+                "vcn_dns_label": {
+                "title": "VCN DNS Label",
+                "description": "A DNS label for the VCN, used in conjunction with the VNIC's hostname and subnet's DNS label to form a fully qualified domain name (FQDN) for each VNIC within this subnet"
+                }
+            }
+        },
+        "sampleMultiTierWindowsServerBasedCoreAspNETApp": {
+            "longDescription": "Provides a quick way to create a multi tier application with a load balancer with windows servers behind them and deployed with an ASP.net core web application deployed to it",
+            "solutionName": "Sample Windows Server based Core Asp.NET Web application",
+            "stackDescription": "Provision a load balancer, 2 windows servers with.Net hosting binaries and sample ASP.net application & launch the website",
+            "variables": {
+                "load_balancer_shape_details_maximum_bandwidth_in_mbps": {
+                    "title": "Load balancer shape specified as maximum bandwidth supported in mbps",
+                    "description": "Load balancer shape maximum bandwidth"
+                },
+                "load_balancer_shape_details_minimum_bandwidth_in_mbps": {
+                    "title": "Load balancer shape specified as minimum bandwidth supported in mbps",
+                    "description": "Load balancer shape minimum bandwidth"
+                },
+                "instance_shape": {
+                    "title": "Instance Shape",
+                    "description": "A shape is a template that determines the number of CPUs, amount of memory, and other resources allocated to a newly created instance."
+                },
+                "instance_name": {
+                    "title": "Instance Name",
+                    "description": "Name of the compute instance"
+                },
+                "instance_password": {
+                    "title": "Instance Password",
+                    "description": "Compute instance password"
+                },
+                "user_data": {
+                    "title": "user data folder",
+                    "description": "user data folder"
+                },
+                "cloud_init_ps1": {
+                    "title": "cloud initialization script name",
+                    "description": "cloud initialization script name"
+                },
+                "cloud_init_config": {
+                    "title": "cloud initialization configuration",
+                    "description": "cloud initialization configuration"
+                },
+                "image_os": {
+                    "title": "Operating System Image",
+                    "description": "Operating System Image"
+                },
+                "image_os_version": {
+                    "title": "Operating System version",
+                    "description": "Operating System version"
+                }
+            },
+            "outputGroups": {
+                "title": "Windows ASP.net App details"
+            },
+            "outputs": {
+                "compute_username": {
+                    "title": "Compute instance user name",
+                    "displayText": "Compute user name"
+                },
+                "compute_password": {
+                    "title": "Compute instance user password",
+                    "displayText": "Compute user password"
+                },
+                "instance_public_ip1": {
+                    "title": "Compute instance1 public IP Address",
+                    "displayText": "Compute instance1 public IP Address"
+                },
+                "instance_public_ip2": {
+                    "title": "Compute instance2 public IP Address",
+                    "displayText": "Compute instance2 public IP Address"
+                },
+                "lb_public_ip": {
+                    "title": "Load Balancer Public IP",
+                    "displayText": "Load Balancer Public IP"
+                }
+            }
+        },
+        "computeInstance": {
+            "longDescription": "Provides an easy way to launch Compute instances and optionally create and attach any number of block volumes. Note: Oracle-provided images include rules that restrict access to the boot and block volumes. We recommend that you do not use custom images without these rules unless you understand the security risks. See Compute Best Practices for recommendations on how to manage instances.",
+            "solutionName": "Compute Instance",
+            "stackDescription": "Provision a Compute instance in Oracle Cloud Infrastructure",
+            "variables": {
+                "instance_display_name": {
+                "title": "Compute Instance Display Name",
+                "description": "Display name of the compute instance"
+                },
+                "extended_metadata": {
+                "title": "Extended Metadata",
+                "description": "Additional metadata key/value pairs provided by the user"
+                },
+                "ipxe_script": {
+                "title": "IPXE (Preboot eXecution Environment) Script",
+                "description": "The iPXE script that initiates the boot process on the compute instance"
+                },
+                "preserve_boot_volume": {
+                "title": "Preserve Boot Volume",
+                "description": "Specifies whether to delete or preserve the boot volume when terminating an instance"
+                },
+                "boot_volume_size_in_gbs": {
+                "title": "Boot Volume Size in Gigabytes",
+                "description": "The size of the boot volume in GBs"
+                },
+                "shape": {
+                "title": "Instance Shape",
+                "description": "A shape is a template that determines the number of CPUs, amount of memory, and other resources allocated to a newly created instance."
+                },
+                "assign_public_ip": {
+                "title": "Assign Public IP",
+                "description": "Whether the VNIC should be assigned a public IP address"
+                },
+                "vnic_name": {
+                "title": "VNIC Name",
+                "description": "A user-friendly name for the VNIC"
+                },
+                "hostname_label": {
+                "title": "Host Name",
+                "description": "The hostname for the VNIC's primary private IP"
+                },
+                "private_ip": {
+                "title": "Private IP",
+                "description": "Private IP address of your choice to assign to the VNICs."
+                },
+                "skip_source_dest_check": {
+                "title": "Skip the Source/Destination Check",
+                "description": "Whether the source/destination check is disabled on the VNIC"
+                },
+                "subnet_ocid": {
+                "title": "Subnet",
+                "description": "The subnet in which the instance primary VNICs are created. The Subnets template is one way to quickly and easily create a subnet."
+                },
+                "vcn_ocid": {
+                "title": "Virtual Cloud Network (VCN)",
+                "description": "The virtual cloud network to use with the compute instance. You can use the Subnets template to create a VCN."
+                },
+                "ssh_public_key": {
+                "title": "SSH Public Key",
+                "description": "Public SSH key to be included in the ~/.ssh/authorized_keys file for the default user on the instance"
+                },
+                "user_data": {
+                "title": "User Data",
+                "description": "Provide your own base64-encoded data to be used by Cloud-Init to run custom scripts or provide custom Cloud-Init configuration."
+                },
+                "source_ocid": {
+                "title": "Source OCID",
+                "description": "The unique identifier (OCID) of an image or a boot volume to use, depending on the value of Source Type. The given default OCID is for the Oracle Linux 7 image in the us-phoenix-1 region."
+                },
+                "source_type": {
+                "title": "Source Type",
+                "description": "The source type for the instance. Use image when specifying the image unique identifier (OCID). Use bootVolume when specifying the boot volume OCID."
+                },
+                "instance_timeout": {
+                "title": "Instance Timeout",
+                "description": "Timeout setting for creating instance"
+                },
+                "block_storage_size_in_gbs": {
+                "title": "Block Storage Size in Gigabytes",
+                "description": "Size of a volume to create and attach to the instance."
+                },
+                "attachment_type": {
+                "title": "Attachment Type",
+                "description": "The type of volume attachment."
+                },
+                "use_chap": {
+                "title": "Use CHAP",
+                "description": "Whether to use CHAP authentication for the volume attachment"
+                },
+                "resource_platform": {
+                "title": "Resource Platform",
+                "description": "The platform on which resources should be created"
+                }
+            }
+        },
+        "subnets": {
+            "longDescription": "Provides a quick way to provision subnets in Oracle Cloud Infrastructure.",
+            "solutionName": "Subnets",
+            "stackDescription": "Provision subnets in Oracle Cloud Infrastructure",
+            "variables": {
+                "vcn_id": {
+                "title": "Virtual Cloud Network ID",
+                "description": "The VCN ID where the Subnet(s) should be created."
+                },
+                "vcn_cidr": {
+                "title": "VCN CIDR",
+                "description": "The CIDR of the VCN (used when dynamically generating subnet CIDRs, if a specific CIDR is not otherwise given)."
+                },
+                "dns_label": {
+                "title": "DNS Label",
+                "description": "A label to use with the DNS instance that will be created"
+                },
+                "dns_enabled": {
+                "title": "DNS Enabled",
+                "description": "Should DNS be enabled on the subnet"
+                },
+                "subnet_display_name": {
+                "title": "Subnet Display Name",
+                "description": "The display name of the subnet"
+                },
+                "vcn_display_name": {
+                "title": "VCN Display Name",
+                "description": "The display name of the VCN"
+                },
+                "prohibit_public_ip_on_vnic": {
+                "title": "Prohibit Public IP on VNIC",
+                "description": "Should public IP be enabled on the VNIC"
+                }
+            }
+        },
+        "blockVolume": {
+            "longDescription": "Provides a quick way to provision a block volume and volume group in Oracle Cloud Infrastructure. <a href='https://github.com/oracle-terraform-modules/terraform-oci-tdf-block-storage'>Learn more</a>",
+            "solutionName": "Block Volume",
+            "stackDescription": "Provision a block volume in Oracle Cloud Infrastructure",
+            "variables": {
+                "block_volume_display_name": {
+                "title": "Block Volume Display Name",
+                "description": "Display name of the block volume"
+                },
+                "block_volume_size_in_gbs": {
+                "title": "Block Volume Size",
+                "description": "Block volume size in GBs"
+                },
+                "backup_policy_name": {
+                "title": "Backup Policy"
+                },
+                "source_id": {
+                "title": "Create volume from another source",
+                "description": "Provide OCID of another source volume"
+                },
+                "source_type": {
+                "title": "Source Volume Type"
+                },
+                "kms_key_id": {
+                "title": "KMS Encryption Key for Volume",
+                "description": "The OCID of the Key Management key which is the master encryption key for the volume"
+                },
+                "add_volume_to_volume_group": {
+                "title": "Add Volume to Volume Group"
+                },
+                "volume_group_display_name": {
+                "title": "Block Volume Group Display Name",
+                "description": "Display name of the Block Volume Group"
+                }
+            },
+            "outputGroups": {
+                "title": "Block Volume"
+            }
+        },
+        "ociDevTools": {
+            "solutionName": "Oracle Cloud Development Kit",
+            "stackDescription": "Provision a Compute instance with Oracle Cloud developer tools installed.",
+            "longDescription": "Provides an Oracle Cloud developer environment with the OCI CLI, SDKs, Terraform and Ansible pre-installed. <a href='https://docs.cloud.oracle.com/iaas/Content/ResourceManager/Tasks/devtools.htm#touse'>Learn more</a>.",
+            "informationalText": "To connect to the compute instance, copy the ssh private key pem content into a file on your machine, then run the command: <strong>[ssh -i <path to the private key pem file> opc@<instance public IP>]</strong>. <strong>NOTE</strong>: The auto-generated SSH private key should not be used in a production environment. <a href='https://docs.cloud.oracle.com/iaas/Content/ResourceManager/Tasks/devtools.htm#touse'>Learn more about using the Oracle Cloud Development Kit</a>.",
+            "variables": {
+                "instance_shape": {
+                    "title": "Instance Shape",
+                    "description": "The shape for the compute instance"
+                },
+                "generate_ssh_key_pair": {
+                    "title": "Auto-generate SSH key pair",
+                    "description": "SSH key-pair is generated when this option is selected. It is not safe to use this option for production systems because the private key is stored in terraform state file and can be viewed by anyone who has access to the stack. Uncheck this box if you want to generate an SSH key pair and upload the public key."
+                },
+                "ssh_public_key": {
+                    "title": "SSH Public Key",
+                    "description": "The public SSH key for the key-pair that you want to use to login to instances via SSH."
+                },
+                "use_tenancy_level_policy": {
+                    "title": "Compute instance to access all resources at tenancy level",
+                    "description": "If this checkbox is selected, the dynamic group policy is created to give all resources access to the compute instance at the tenancy level . If unselected, the dynamic group policy is created to give all resources accesss to the compute instance at the compartment level"
+                }
+            },
+            "outputGroups": {
+                "title": "Compute Instance Details"
+            },
+            "outputs": {
+                "compute_instance_public_ip": {
+                    "title": "Compute Instance Public IP",
+                    "displayText": "Compute Instance Public IP"
+                },
+                "compartment_id": {
+                    "title": "Compartment Id",
+                    "displayText": "Compartment Id"
+                },
+                "generated_instance_ssh_private_key": {
+                    "title": "Generated Private Key for SSH Access",
+                    "displayText": "Generated Private Key for SSH Access"
+                }
+            }
+        },
+        "jenkins": {
+            "solutionName": "Jenkins in master-agent mode",
+            "stackDescription": "Provision Jenkins in master-agent mode.",
+            "longDescription": "Host Jenkins on Oracle Cloud Infrastructure to centralize your build automation and scale your deployment as the needs of your software projects grow.",
+            "informationalText": "To connect to the Jenkins UI, copy jenkins_login_url and paste it to your web browser.",
+            "variables": {
+                "vcn_cidr": {
+                    "title": "VCN CIDR",
+                    "description": "A single, contiguous IPv4 CIDR block of your choice for the VCN"
+                },
+                "jenkins_password": {
+                    "title": "Jenkins admin user password",
+                    "description": "Enter password for Jenkins admin user"
+                },
+                "label_prefix": {
+                    "title": "Subnets' Label Prefix",
+                    "description": "Enter Label Prefix for Jenkins subnets"
+                },
+                "lb_http_port": {
+                    "title": "Load Balanacer HTTP Port",
+                    "description": "Enter Load Balanacer HTTP Port"
+                },
+                "http_port": {
+                    "title": "HTTP Port for Jenkins Server",
+                    "description": "Enter HTTP Port for Jenkins Server"
+                },
+                "jnlp_port": {
+                    "title": "JNLP Port",
+                    "description": "Enter JNLP Port"
+                },
+                "jenkins_version": {
+                    "title": "Jenkins version",
+                    "description": "Enter Jenkins version"
+                },
+                "slave_count": {
+                    "title": "Number of Jenkins Slave Servers",
+                    "description": "Number of Jenkins Slave Servers"
+                },
+                "OsImage": {
+                    "title": "Operating System Image",
+                    "description": "Operating System Image"
+                },
+                "bastion_display_name": {
+                    "title": "Name of Bastion Server",
+                    "description": "Name of Bastion Server"
+                },
+                "bastion_shape": {
+                    "title": "Bastion Server Shape",
+                    "description": "Bastion Server Shape"
+                },
+                "primary_shape": {
+                    "title": "Jenkins Primary Server Shape - TC-13199",
+                    "description": "Jenkins Master Server Shape"
+                },
+                "secondary_shape": {
+                    "title": "Jenkins Secondary Server Shape",
+                    "description": "Jenkins Slave Server Shape"
+                },
+                "bastion_user": {
+                    "title": "Bastion Server OS User",
+                    "description": "Bastion Server OS User"
+                },
+                "bastion_ad_index": {
+                    "title": "Index of Availability Domain for Bastion Server",
+                    "description": "Index of Availability Domain for Bastion Server"
+                },
+                "listener_ca_certificate": {
+                    "title": "Load Balanacer Listener CA Certificate",
+                    "description": "Load Balanacer Listener CA Certificate"
+                },
+                "listener_private_key": {
+                    "title": "Load Balanacer Listener Private Key",
+                    "description": "Load Balanacer Listener Private Key"
+                },
+                "listener_public_certificate": {
+                    "title": "Load Balanacer Listener Public Certificate",
+                    "description": "Load Balanacer Listener Public Certificate"
+                }
+            },
+            "outputs": {
+                "bastion_public_ip": {
+                    "title": "Bastion Server Public IP",
+                    "displayText": "Bastion Server Public IP"
+                },
+                "jenkins_login_url": {
+                    "title": "Jenkins Login URL",
+                    "displayText": "Jenkins Login URL"
+                },
+                "primary_private_ip": {
+                    "title": "Jenkins Primary Private IP",
+                    "displayText": "Jenkins Master Private IP"
+                },
+                "secondary_private_ips": {
+                    "title": "Jenkins Secondary Private IPs",
+                    "displayText": "Jenkins Slaves Private IPs"
+                },
+                "generated_ssh_private_key": {
+                    "title": "Generated SSH Private Key",
+                    "displayText": "Generated SSH Private Key"
+                }
+            }
+        },
+        "adw-odi-oac": {
+            "longDescription": "This architecture uses Oracle Data Integrator (ODI) to load and optimize data into a centralized data warehouse and then uses Oracle Analytics Cloud to analyze the data to provide actionable insights.",
+            "solutionName": "Departmental Data Warehousing using Oracle Date Integrator",
+            "stackDescription": "Provision Autonomous Data Warehouse and Oracle Analytics Cloud to ingest data via Oracle Data Integrator",
+            "variables": {
+                "autonomous_database_admin_password": {
+                    "title": "ADW Database Password",
+                    "description": "ADW Database Password"
+                },
+                "autonomous_database_cpu_core_count": {
+                    "title": "ADW database CPU core count",
+                    "description": "Autonomous Data Warehouse (ADW) CPU core count"
+                },
+                "autonomous_database_db_name": {
+                    "title": "ADW database name",
+                    "description": "Autonomous Data Warehouse (ADW) Database name"
+                },
+                "autonomous_database_display_name": {
+                    "title": "ADW database display name",
+                    "description": "Autonomous Data Warehouse (ADW) Database display name"
+                },
+                "autonomous_database_db_version": {
+                    "title": "ADW database version",
+                    "description": "Autonomous Data Warehouse (ADW) Database version"
+                },
+                "autonomous_database_is_auto_scaling_enabled": {
+                    "title": "ADW database auto-scalling enabled",
+                    "description": "Autonomous Data Warehouse (ADW) auto-scalling enabled"
+                },
+                "autonomous_database_data_storage_size_in_tbs": {
+                    "title": "ADW database data storage size in TBs",
+                    "description": "Autonomous Data Warehouse (ADW) data storage size in terabytes."
+                },
+                "autonomous_database_license_model": {
+                    "title": "ADW database license model",
+                    "description": "Autonomous Data Warehouse (ADW) license model."
+                },
+                "autonomous_database_data_safe_status": {
+                    "title": "ADW database DataSafe status",
+                    "description": "Autonomous Data Warehouse (ADW) DataSafe status."
+                },
+                "autonomous_database_whitelisted_ips": {
+                    "title": "ADW database whitelisted IPs",
+                    "description": "Autonomous Data Warehouse (ADW) whitelisted IPs."
+                },
+                "odi_vnc_password": {
+                    "title": "VNC Password for accessing ODI compute instance",
+                    "description": "VNC Password for accessing Oracle Data Integrator (ODI) compute instance."
+                },
+                "new_odi_password": {
+                    "title": "ODI database password",
+                    "description": "Oracle Data Integrator (ODI) Password."
+                },
+                "new_odi_schema_prefix": {
+                    "title": "ODI database schema prefix",
+                    "description": "Oracle Data Integrator (ODI) database schema prefix."
+                },
+                "new_odi_schema_password": {
+                    "title": "ODI database schema password",
+                    "description": "Oracle Data Integrator (ODI) database schema password."
+                },
+                "vcn_cidr": {
+                    "title": "ODI VCN CIDR block",
+                    "description": "Oracle Data Integrator (ODI) VCN CIDR block where you want to create the template resources."
+                },
+                "create_public_subnet": {
+                    "title": "ODI Create Public Subnet",
+                    "description": "Oracle Data Integrator (ODI) Create Public Subnet (with bastion)"
+                },
+                "instance_shape": {
+                    "title": "ODI Compute Instance Shape",
+                    "description": "Oracle Data Integrator (ODI) Compute Instance Shape"
+                },
+                "service_name": {
+                    "title": "ODI Service Name Prefix",
+                    "description": "Oracle Data Integrator (ODI) Service Name Prefix for the resources to be created."
+                },
+                "advanced_mode": {
+                    "title": "ODI Advanced Mode",
+                    "description": "Oracle Data Integrator (ODI) Advanced Mode"
+                },
+                "runtime_mode": {
+                    "title": "ODI Runtime Mode",
+                    "description": "Oracle Data Integrator (ODI) Runtime Mode."
+                },
+                "quick_create": {
+                    "title": "ODI Quick Create",
+                    "description": "Oracle Data Integrator (ODI) Quick Create."
+                },
+                "use_marketplace_image": {
+                    "title": "ODI usage of OCI Marketplace image",
+                    "description": "Oracle Data Integrator (ODI) usage of OCI Marketplace image"
+                },
+                "mp_listing_id": {
+                    "title": "ODI OCI Marketplace Listing OCID",
+                    "description": "Oracle Data Integrator (ODI) OCI Marketplace Listing OCID"
+                },
+                "mp_listing_resource_version": {
+                    "title": "ODI OCI Marketplace Listing Resource Version",
+                    "description": "Oracle Data Integrator (ODI) OCI Marketplace Listing Resource Version"
+                },
+                "mp_listing_resource_id": {
+                    "title": "ODI OCI Marketplace Listing Resource OCID",
+                    "description": "Oracle Data Integrator (ODI) OCI Marketplace Listing Resource OCID"
+                },
+                "analytics_instance_idcs_access_token": {
+                    "title": "ODI database schema password",
+                    "description": "Oracle Data Integrator (ODI) database schema password."
+                },
+                "analytics_instance_capacity_capacity_type": {
+                    "title": "OAC instance capacity type",
+                    "description": "Oracle Analytics Cloud (OAC) instance capacity type."
+                },
+                "analytics_instance_feature_set": {
+                    "title": "OAC instance feature set",
+                    "description": "Oracle Analytics Cloud (OAC) instance feature set."
+                },
+                "analytics_instance_license_type": {
+                    "title": "OAC instance license type",
+                    "description": "Oracle Analytics Cloud (OAC) instance license type."
+                },
+                "analytics_instance_name": {
+                    "title": "OAC instance name",
+                    "description": "Oracle Analytics Cloud (OAC) instance name."
+                },
+                "catalog_display_name": {
+                    "title": "OCI Data Catalog display name",
+                    "description": "OCI Data Catalog display name."
+                }
+            }
+        },
+        "VCN": {
+			"longDescription": "Provides a quick way to create a Oracle Cloud Infrastructure virtual cloud network (VCN) with optional gateways",
+			"solutionName": "VCN with optional gateways",
+			"stackDescription": "Provision a VCN with optional gateways",
+			"variables": {
+				"vcn_cidr": {
+					"title": "CIDR block of VCN",
+					"description": "A single, contiguous IPv4 CIDR block of your choice for the VCN",
+					"default": "10.0.0.0/16"
+				},
+				"vcn_name": {
+					"title": "VCN Name",
+					"description": "User-friendly name to use for the VCN",
+					"default": "Test VCN"
+				},
+				"vcn_dns_label": {
+					"title": "VCN DNS Label",
+					"description": "A DNS label for the VCN, used in conjunction with the VNIC's hostname and subnet's DNS label to form a fully qualified domain name (FQDN) for each VNIC within this subnet",
+					"default": "vcn"
+				},
+				"label_prefix": {
+					"title": "Label Prefix",
+					"description": "A string that will be prepended to all resources (The default is `none` which does not prepend any value)",
+					"default": "none"
+				},
+				"internet_gateway_enabled": {
+					"title": "Enable Internet Gateway",
+					"description": "Check in order to create the internet gateway"
+				},
+				"nat_gateway_enabled": {
+					"title": "Enable NAT Gateway",
+					"description": "Check in order to create the NAT gateway"
+				},
+				"service_gateway_enabled": {
+					"title": "Enable Service Gateway",
+					"description": "Check in order to create the service gateway"
+				},
+				"tag": {
+					"title": "Tags",
+                    "description": "Free-form Tags"
+				}
+			}
+        },
+        "wordpress": {
+            "longDescription": "Create your own website or blog using WordPress on OCI.",
+            "solutionName": "Deploy a WordPress instance on OCI",
+            "stackDescription": "Deploy a WordPress instance on OCI",
+            "stackTitle": "Deploy a WordPress instance on OCI",
+            "variableGroups":{
+                "wordPressConfigurationTitle":"WordPress Configuration" ,
+                "mySqlConfigurationTitle":"MySQL Configuration" ,
+                "instanceConfigurationTitle":"Instance Configuration" ,
+                "networkConfigurationTitle": "Network Configuration"
+            },
+            "outputGroups":{
+                "serviceEndpointsTitle":"Service Endpoints",
+                "generatedPasswordsTitle":"Generated Passwords"
+            },
+            "outputs":{
+                "wordpressPublicIpTitle" : "Your WordPress website",
+                "wordpressPublicIpDescription" : "Open WordPress website",
+                "wordpressAdminUrlTitle" : "WordPress Login",
+                "wordpressAdminUrlDescription" : "Login to your WordPress installation.",
+                "generatedSshPrivateKeyTitle" : "Generated SSH Private Key",
+                "generatedSshPrivateKeyDescription" : "Generated SSH Private Key"
+            },
+            "variables":{
+                "showAdvancedTitle": "Show advanced options?" ,
+                "showAdvancedDescription": "Shows advanced options.",
+                "wpDbUserTitle": "WordPress database username" ,
+                "wpDbUserDescription": "The username that WordPress uses to connect to the MySQL database." ,
+                "wpSchemaTitle": "MySQL schema to be used by WordPress" ,
+                "wpSchemaDescription": "The MySQL Schema/Database for WordPress." ,
+                "wpAdminUserTitle": "WordPress administrator username" ,
+                "wpAdminUserDescription": "The username for the WordPress administrator." ,
+                "wpAdminPasswordTitle": "WordPress administrator password" ,
+                "wpAdminPasswordDescription": "The password must be more than 8 characters and include at least one uppercase letter, one lowercase letter, one number, and one of the following special characters: !@#%^*_+-:?.,[]\\{\\}" ,
+                "vcnTitle": "VCN name" ,
+                "vcnDescription": "Type VCN name where your WordPress will be deployed." ,
+                "vcnCidrTitle": "VCN CIDR" ,
+                "vcnCidrDescription": "Choose VCN CIDR for your WordPress deployment." ,
+                "compartmentOcidTitle": "Compartment" ,
+                "compartmentOcidDescription": "Compartment where your WordPress will be deployed." ,
+                "availabilityDomainNameTitle": "Availability Domain to be chosen" ,
+                "availabilityDomainNameDescription": "Choose Availability Domain where your WordPress will be deployed." ,
+                "instanceShapeTitle": "Wordpress node shape" ,
+                "instanceShapeDescription": "Choose Instance Shape for WordPress host." ,
+                "instanceOcpusTitle": "Number of OCPUs" ,
+                "instanceOcpusDescription": "You can customize the number of OCPUs to a flexible shape." ,
+                "instanceShapeConfigMemoryInGbsTitle": "Amount of memory (GB)" ,
+                "instanceShapeConfigMemoryInGbsDescription": "You can customize the amount of memory allocated to a flexible shape." ,
+                "instanceOsTitle": "Instance OS" ,
+                "instanceOsDescription": "An Operating System that determines the operating system for WordPress host." ,
+                "linuxOsVersionTitle": "Instance OS version" ,
+                "linuxOsVersionDescription": "An Operating System version that determines the operating system version for WordPress host." ,
+                "labelPrefixTitle": "WordPress Hostname Prefix" ,
+                "labelPrefixDescription": "Type WordPress Hostname Prefix." ,
+                "generatePublicSshKeyTitle": "Auto generate public ssh key?" ,
+                "publicSshKeyTitle": "Import your own SSH public key" ,
+                "publicSshKeyDescription": "In order to access your private nodes with a public SSH key you will need to set up a bastion host (a.k.a. jump box). If using public nodes, bastion is not needed. Left blank to not import keys."
+            }
+
+        },
+        "aspnetQuickstarts": {
+            "longDescription": "Deploy a sample ASP .NET application in a highly available configuration, with two Windows instances and a load balancer.",
+            "solutionName": "ASP.NET Quickstarts",
+            "stackName": "Deploy a .NET application to Microsoft Windows instances",
+            "stackDescription": "Deploy a sample ASP .NET application in a highly available configuration, with two Windows instances and a load balancer.",
+            "variableGroups":{
+                "remoteDesktopTitle": "Windows Remote Desktop Configuration",
+                "advancedConfigTitle": "Advanced Configuration"
+            },
+            "outputGroups": {
+                "deploymentDetailsTitle": "Deployment Details"
+            },
+            "outputs": {
+                "instancePublicIp1Title": "Instance 1 Public IP",
+                "instancePublicIp1Description": "Public IP for connecting to instance 1 over Remote Desktop",
+                "instancePublicIp2Title": "Instance 2 Public IP",
+                "instancePublicIp2Description": "Public IP for connecting to instance 2 over Remote Desktop" ,
+                "username1Title": "Username (instance 1)",
+                "username1Description": "User name login to instance 1",
+                "username2Title": "Username (instance 2)",
+                "username2Description": "Username to login to instance 2",
+                "lbPublicIpTitle": "Launch Application",
+                "lbPublicIpDescription": "Open the ASP.NET application deployed to OCI"
+            },
+            "variables":{
+                "instancePasswordTitle": "Password for the Windows opc user",
+                "loadBalancerShapeDetailsMaximumBandwidthInMbpsTitle": "Load Balancer Max Bandwidth",
+                "loadBalancerShapeDetailsMinimumBandwidthInMbpsTitle": "Load Balancer Min Bandwidth",
+                "instanceShapeTitle": "Instance Shape",
+                "instanceNameTitle": "Instance Name",
+                "availabilityDomainTitle": "Availability Domain",
+                "userdataTitle": "Userdata directory",
+                "cloudinitPs1Title": "cloudinit_ps1 name",
+                "cloudinitConfigTitle": "cloudinit_config name",
+                "indexHtmlTitle": "index_html file",
+                "imageOsTitle": "OS Image",
+                "imageOsVersionTitle": "OS version",
+                "isWinrmConfiguredForImageTitle": "WinRM enabled Image ?",
+                "isWinrmConfiguredForSslTitle": "Use SSL for WinRM ?",
+
+                "instancePasswordDescription": "Used to sign in to the instance using remote desktop. Password must be at least 12 characters long and include at least one uppercase letter, one lowercase letter, one number, and one of the following special characters: !@#%^*_+-:?.,[]\\{\\}.",
+                "loadBalancerShapeDetailsMaximumBandwidthInMbpsDescription": "Maximum Bandwidth the Load Balancer will scale to.",
+                "loadBalancerShapeDetailsMinimumBandwidthInMbpsDescription": "Minimum Bandwidth the Load Balancer will scale to.",
+                "instanceShapeDescription": "The compute shape to use.",
+                "instanceNameDescription": "Name for the instance",
+                "availabilityDomainDescription": "The availability domain to deploy the compute instances",
+                "userdataDescription": "Name of the userdata directory",
+                "cloudinitPs1Description": "Name of the cloudinit_ps1 script",
+                "cloudinitConfigDescription": "Name of the cloudinit_config file",
+                "indexHtmlDescription": "Name of the index_html file" ,
+                "imageOsDescription": "The OS image to use",
+                "imageOsVersionDescription": "Version of the image OS",
+                "isWinrmConfiguredForImageDescription": "WinRM support in image",
+                "isWinrmConfiguredForSslDescription": "Use SSL for WinRM"
+            }
+
+        },
+        "jenkinsQuickstarts": {
+            "longDescription": "Deploy containerized Jenkins server on OCI using a single compute instance.",
+            "solutionName": "Jenkins Quickstarts",
+            "stackDescription": "Deploy a containerized Jenkins instance on OCI",
+            "variableGroups":{
+                "jenkinsConfigurationTitle": "Jenkins Configuration",
+                "instanceConfigurationTitle": "Instance Configuration",
+                "networkConfigurationTitle": "Network Configuration"
+            },
+            "outputGroups":{
+                "serviceEndpointsTitle": "Service Endpoints",
+                "generatedPasswordsTitle": "Generated Passwords"
+            },
+            "outputs":{
+                "jenkinsPublicIpTitle" : "Jenkins Login",
+                "generatedSshPrivateKeyTitle": "Generated SSH Private Key",
+
+                "jenkinsPublicIpDescription": "Open Jenkins",
+                "generatedSshPrivateKeyDescription": "Generated SSH Private Key"
+            },
+            "variables":{
+                "showAdvancedTitle": "Show advanced options?",
+                "jenkinsUserTitle": "Jenkins username" ,
+                "jenkinsPasswordTitle": "Jenkins password" ,
+                "vcnTitle": "VCN name",
+                "vcnCidrTitle": "VCN CIDR",
+                "availabilityDomainNameTitle": "Availability Domain to be chosen",
+                "instanceShapeTitle": "Jenkins node shape" ,
+                "instanceOsTitle": "Instance OS",
+                "linuxOsVersionTitle": "Instance OS version",
+                "labelPrefixTitle": "Jenkins Hostname Prefix",
+                "generatePublicSshKeyTitle": "Auto generate public ssh key?",
+                "publicSshKeyTitle": "Import your own SSH public key",
+
+                "showAdvancedDescription" :  "Shows advanced options." ,
+                "jenkinsUserDescription" : "The username to sign in to Jenkins.",
+                "jenkinsPasswordDescription" : "The password must be 8-32 characters and include at least one uppercase letter, one lowercase letter, one number, and one of the following special characters: !@#%^*_+-:?.,[]\\{\\}",
+                "vcnDescription" : "Type VCN name where your Jenkins will be deployed.",
+                "vcnCidrDescription" : "Choose VCN CIDR for your Jenkins deployment.",
+                "availabilityDomainNameDescription" : "Choose Availability Domain where your Jenkins will be deployed." ,
+                "instanceShapeDescription" : "Choose Instance Shape for Jenkins host.",
+                "instanceOsDescription" : "An Operating System that determines the operating system for Jenkins host.",
+                "linuxOsVersionDescription" : "An Operating System version that determines the operating system version for Jenkins host.",
+                "labelPrefixDescription" : "Type Jenkins Hostname Prefix.",
+                "generatePublicSshKeyDescription" : "Generates an SSH key pair when selected. You can download the keys. Uncheck to provide your own public key.",
+                "publicSshKeyDescription" : "In order to access your private nodes with a public SSH key you will need to set up a bastion host (a.k.a. jump box). If using public nodes, bastion is not needed. Left blank to not import keys."
+            }
+        },
+        "mushopQuickstarts": {
+            "longDescription": "A demo eCommerce example app (MuShop Basic) using Always-Free Oracle Cloud Infrastructure.",
+            "solutionName": "MuShop Basic Quickstarts",
+            "stackDescription": "Three-tier web application using Always-Free resources",
+            "groupings":{
+                "optionsEncryptionTitle": "Encryption using OCI Vault (KMS)",
+                "optionsAdvCompute": "Advanced Resource Options - Compute",
+                "optionsAdvLB": "Advanced Resource Options - Load Balancer",
+                "optionsAdvATP": "Advanced Resource Options - ATP",
+                "optionsAdvOS": "Advanced Resource Options - Object Storage"
+            },
+            "variables":{
+                "numNodesTitle" : "Node Count",
+                "autonomousDatabaseNameTitle" : "Database Name",
+                "showAdvancedTitle" : "Show advanced options?",
+                "generatePublicSshKeyTitle" : "Auto-generate public ssh key?",
+                "publicSshKeyTitle" : "SSH Public Key",
+                "isPvEncryptionInTransitEnabledTitle" : "Use in-transit encryption?",
+                "useEncryptionFromOciVaultTitle" : "Encrypt boot volume and object storage bucket with a key that you manage?",
+                "createNewEncryptionKeyTitle" : "Create new vault and encryption key?",
+                "encryptionKeyIdTitle" : "Existent master encryption key",
+                "createVaultPoliciesForGroupTitle" : "Create policies for the user group to manage vault and keys?",
+                "userAdminGroupForVaultPolicyTitle" : "Specific your group to include the policy",
+                "useOnlyAlwaysFreeElegibleResourcesTitle" : "Use only always free eligible resources?",
+                "instanceShapeTitle" : "Select a shape for the compute instances",
+                "instanceOcpusTitle" : "Number of OCPUs",
+                "instanceShapeConfigMemoryInGbsTitle" : "Amount of memory (GB)",
+                "imageOperatingSystemTitle" : "Compute Image OS",
+                "imageOperatingSystemVersionTitle" : "Compute Image OS Version",
+                "instanceVisibilityTitle" : "Choose instance visibility type",
+                "lbShapeTitle" : "Select a shape for the load balancer",
+                "lbShapeDetailsMinimumBandwidthInMbpsTitle" : "Choose the minimum bandwidth",
+                "lbShapeDetailsMaximumBandwidthInMbpsTitle" : "Choose the maximum bandwidth",
+                "lbCompartmentOcidTitle" : "Load Balancer Compartment",
+                "createSecondaryVcnTitle" : "Create secondary VCN for LoadBalancer?",
+                "createLpgPoliciesForGroupTitle" : "Create policies for the user group to manage local peering gateways?",
+                "userAdminGroupForLpgPolicyTitle" : "Specify your group to include the policy",
+                "autonomousDatabaseIsFreeTierTitle" : "Use always free Autonomous Database?",
+                "autonomousDatabaseVisibilityTitle" : "Choose autonomous database visibility type",
+                "objectStorageMushopMediaCompartmentOcidTitle" : "Object Storage (MuShop Media) Compartment",
+                "objectStorageMushopMediaVisibilityTitle" : "Select Object Storage visibility",
+                "objectStorageMushopMediaReadParExpirationDateTitle" : "Object Storage Media PAR expiration date",
+
+                "numNodesDescription" : "Choose the number of compute instances to deploy.",
+                "autonomousDatabaseNameDescription" : "The name for the Autonomous Database instance. The deployment id (4 characters random string) will be added to the end of the DB name.",
+                "showAdvancedDescription" : "Shows advanced options, allowing enable customer managed encryption keys, select your ssh key, and other advanced options. NOTE: Only encryption and ssh key changes are available as Always Free resources, other advanced options may not be available on the Always Free.",
+                "generatePublicSshKeyDescription" : "Auto-generate a public key and assign to the compute instances. Uncheck to provide your own public key or leave blank not to use any attach any key to the compute instance.",
+                "publicSshKeyDescription" : "The public SSH key for the key-pair that you want to use, if you wish to login to the instances over SSH.",
+                "isPvEncryptionInTransitEnabledDescription" : "Encrypts data in transit between the instance and the boot volume. In-transit encryption for boot and block volumes is only available for virtual machine (VM) instances launched from Oracle-provided images, it is not supported on bare metal instances.",
+                "useEncryptionFromOciVaultDescription" : "By default, Oracle manages the keys that encrypt the boot volume and object storage bucket, but you can choose a key from a vault that you have access to if you want greater control over the key's lifecycle and how it's used.",
+                "createNewEncryptionKeyDescription" : "Creates new vault and key on OCI Vault/Key Management/KMS and assign to boot volume of compute and object storage bucket.",
+                "encryptionKeyIdDescription" : "Use an existent master encryption key to encrypt boot volume and object storage bucket. NOTE: If the key resides in a different compartment or in a different tenancy, make sure you have the proper policies to access, or the provision of Object Storage and Compute will fail.",
+                "createVaultPoliciesForGroupDescription" : "Creates policies to allow the user applying the stack to manage vault and keys. If you are on the Administrators group or already have the policies for a compartment, this policy is not needed. If you do not have access to allow the policy, ask your administrator to include it for you.",
+                "userAdminGroupForVaultPolicyDescription" : "Identity Group to allow manage vault and keys.",
+                "useOnlyAlwaysFreeElegibleResourcesDescription" : "*** Unchecking this may use options that are not included or supported by Always Free eligible resources.",
+                "instanceShapeDescription" : "A shape is a template that determines the number of CPUs, amount of memory, and other resources allocated to a newly created instance.",
+                "instanceOcpusDescription" : "You can customize the number of OCPUs allocated to a flexible shape.",
+                "instanceShapeConfigMemoryInGbsDescription" : "You can customize the amount of memory allocated to a flexible shape.",
+                "imageOperatingSystemDescription" : "The OS/image installed on all compute instances.",
+                "imageOperatingSystemVersionDescription" : "The OS/image version installed on all compute instances.",
+                "instanceVisibilityDescription" : "The instance visibility will define if assign a public ip address to the compute instance and if the subnet is public or private.",
+                "lbShapeDescription" : "A load balancer provides automated traffic distribution from one entry point to multiple servers in a backend set. The load balancer ensures that your services remain available by directing traffic only to healthy servers in the backend set.",
+                "lbShapeDetailsMinimumBandwidthInMbpsDescription" : "Enter the minimum size of the flexible shape.",
+                "lbShapeDetailsMaximumBandwidthInMbpsDescription" : "Enter the maximum size of the flexible shape (Should be bigger than minimum size). The maximum service limit is set by your tenancy limits.",
+                "lbCompartmentOcidDescription" : "The compartment in which to create the Public Load Balancer.",
+                "createSecondaryVcnDescription" : "Creates a secondary VCN for the LoadBalancer with local peering to the main VCN.",
+                "createLpgPoliciesForGroupDescription" : "Creates policies to allow the user applying the stack to create a local peering gateway. If you are on the Administrators group or already have the policies for a compartment, this policy is not needed. If you do not have access to allow the policy, ask your administrator to include it for you.",
+                "userAdminGroupForLpgPolicyDescription" : "Identity Group to allow manage local peering gateways.",
+                "autonomousDatabaseIsFreeTierDescription" : "Uses Always Free Transaction Processing Autonomous Database. Unchecking this option will provision a regular 1 OCPU ATP instance with License.",
+                "autonomousDatabaseVisibilityDescription" : "NOTE: Currently private endpoints are only supported if use local terraform. | If Private, creates the ADB with private endpoint. The autonomous database visibility will define if assign the ATP to a private subnet or allow secure access from everywhere.",
+                "objectStorageMushopMediaCompartmentOcidDescription" : "The compartment in which to create the Public MuShop product images.",
+                "objectStorageMushopMediaVisibilityDescription" : "Public creates a public bucket for the mushop media product images. Private creates a private bucket and populates the catalogue service with the images.",
+                "objectStorageMushopMediaReadParExpirationDateDescription" : "The name for the Autonomous Database instance."
+            },
+            "outputGroups":{
+                "appDetailsOutputTitle": "MuShop App details"
+            },
+            "outputs":{
+                "lbPublicUrlTitle" : "Open",
+                "autonomousDatabasePasswordTitle" : "Database Admin Password",
+                "autonomousDatabasePasswordDescription" : "Autonomous Database Admin Password",
+                "generatedPrivateKeyPemTitle" : "Generated Private Key for SSH Access",
+                "generatedPrivateKeyPemDescription" : "Generated Private Key for ssh access to compute nodes",
+                "devTitle" : "Message",
+                "deployIdTitle" : "Deployment Id",
+                "deployedToRegionTitle" : "Deployed using Region",
+                "mushopBasicSourceCodeTitle" : "MuShop Basic source code",
+                "commentsTitle" : "Comments",
+                "commentsDescription" : "The application URL will be unavailable for a few minutes after provisioning, while the application is configured"
+            }
+
+        },
+        "apexQuickstarts": {
+            "longDescription": "Deploy the APEX low-code application development platform as a standalone OCI managed service.",
+            "solutionName": "APEX with ADB",
+            "stackDescription": "Deploy a fully managed APEX instance",
+            "variableGroups":{
+                "apexConfigurationTitle": "APEX Configuration"
+            },
+            "outputs": {
+                "apexUrlTitle" : "APEX Login",
+                "apexUrlDescription" : "Open APEX"
+            },
+            "variables": {
+                "autonomousDatabaseAdminPasswordTitle" : "Database ADMIN Password (Required for APEX Administration)",
+                "autonomousDatabaseAdminPasswordDescription": "Password must be 12 to 30 characters and contain at least one uppercase letter, one lowercase letter, and one number. The password cannot contain double quotation marks or the username 'admin'.",
+                "autonomousDatabaseWorkloadTypeTitle" : "Enable support for Oracle Database Client connectivity (SQL*NET)",
+                "autonomousDatabaseWorkloadTypeDescription": "Instead of provisioning specialized APEX Service and Autonomous Database, creates a full Autonomous Transaction Processing database with APEX included."
+            }
+        },
+        "autonomousDatabase": {
+            "longDescription": "Provides a quick way to create a basic Oracle Cloud Infrastructure Autonomous Database setup for DW, OLTP & AJD Workloads",
+            "solutionName": "Autonomous Database Quick Start",
+            "stackDescription": "Provision an Autonomous database",
+            "variables": {
+              "autonomous_database_name": {
+                "title": "Autonomous Database Name",
+                "description": "The name for the Autonomous Database instance. The deployment id (4 characters random string) will be added to the end of the DB name.",
+                "default": "adbdw1"
+              },
+              "autonomous_database_display_name": {
+                "title": "Autonomous Database Display Name",
+                "description": "Autonomous Database Display Name",
+                "default": "adb_display_name"
+              },
+              "admin_password": {
+                "title": "Database Admin password",
+                "description": "Enter password for the database admin user, default is Welcome#1234",
+                "default": "Welcome#1234"
+              },
+              "cpu_core_count": {
+                "title": "OCPU core count",
+                "description": "Count of OCPUs to be used, value is between 1 to 128, default is 1",
+                "default": "1"
+              },
+              "data_storage_size_in_tbs": {
+                "title": "Data storage size in tbs",
+                "description": "Data storage size in TBs to be used, value is between 1 to 128, default is 1",
+                "default": "1"
+              },
+              "autonomous_database_db_workload": {
+                "title": "ADB Workload",
+                "description": "Choose ADB Workload, Default is Data warehouse DW",
+                "default": "DW"
+              },
+              "autonomous_database_license_model": {
+                "title": "License Model",
+                "description": "Choose License Model, Please Note AJD does not support BRING_YOUR_OWN_LICENSE",
+                "default": "LICENSE_INCLUDED"
+              },
+              "is_auto_scaling_enabled": {
+                "title": "Auto Scaling",
+                "description": "Is Auto Scaling Enabled ? default is Yes",
+                "default": "true"
+              },
+              "is_data_guard_enabled": {
+                "title": "Autonomous Data Guard",
+                "description": "Is Autonomous Data Guard Enabled ? default is No",
+                "default": "false"
+              },
+              "autonomous_database_version": {
+                "title": "Database Version",
+                "description": "Database Version 19c is default version",
+                "default": "19c"
+              },
+              "autonomous_database_data_safe_status": {
+                "title": "Data Safe Status",
+                "description": "Autonomous Database Data Safe Status, Default is NOT_REGISTERED",
+                "default": "NOT_REGISTERED"
+              },
+              "operations_insights_status": {
+                "title": "Operations Insights",
+                "description": "Status of Operations Insights for this Autonomous Database. Values supported are ENABLED and NOT_ENABLED",
+                "default": "NOT_ENABLED"
+              }
+            }
+          },
+        "ociAnsibleAWX": {
+            "longDescription": "Provides an automated way to deploy AWX using OCI Container Engine for Kubernetes (OKE) and also sets up the common prerequisites needed to run OCI Ansible playbooks.",
+            "solutionName": "AWX deployment using OKE",
+            "stackDescription": "Provision AWX v19.3 on the OKE cluster",
+            "variables": {
+                "compartment_ocid": {
+                    "title": "Compartment OCID",
+                    "description": "The compartment OCID for the AWX deployment."
+                },
+                "region": {
+                    "title": "Region",
+                    "description": "The region for the AWX deployment.",
+                    "default": "us-ashburn-1"
+                },
+                "resource_naming_prefix": {
+                    "title": "Resource Naming Prefix",
+                    "description": "A unique prefix to use when naming resources."
+                },
+                "awx_cluster_name": {
+                    "title": "AWX Cluster Name",
+                    "description": "A unique name for the cluster on which to deploy AWX."
+                },
+                "image_operating_system": {
+                    "title": "Instance Image Operating System",
+                    "description": "Name of operating system image for worker nodes.",
+                    "default": "Oracle Linux"
+                },
+                "image_operating_system_version": {
+                    "title": "Instance Image Operating System Version",
+                    "description": "Version of operating system image for worker nodes.",
+                    "default": "7.9"
+                },
+                "instance_shape": {
+                    "title": "Instance Shape",
+                    "description": "Name of a shape for worker nodes. The shape must support more than 6 OCPUs, and more than 8 GB of memory",
+                    "default": "VM.Standard.E3.Flex"
+                },
+                "shape_ocpus": {
+                    "title": "Instance Shape OCPU",
+                    "description": "Number of OCPUs for the shape. Must be more than 6 OCPUs.",
+                    "default": "8"
+                },
+                "shape_mems": {
+                    "title": "Instance Shape Memory",
+                    "description": "Amount of memory for the shape (in GBs). Must be more than 8 GB.",
+                    "default": "10"
+                },
+                "awx_execution_env_image_name": {
+                    "title": "Execution Environment Docker Image",
+                    "description": "Execution environment Docker image, which is required to use OCI Ansible Collections."
+                },
+                "awx_node_ssh_public_key": {
+                    "title": "AWX Node SSH Public Key",
+                    "description": "Public SSH key to access worker nodes in the cluster on which AWX is deployed.",
+                    "default": ""
+                }
+            }
+        },
+        "autoscalingQuickstarts": {
+            "longDescription": "Deploy a highly available three-tier web application with autoscaling in Oracle Cloud Infrastructure.",
+            "solutionName": "Highly available web application with autoscaling",
+            "stackDescription": "Deploy a highly available three-tier web application with autoscaling in Oracle Cloud Infrastructure.",
+            "title": "Deploy a highly available three-tier web application with autoscaling in Oracle Cloud Infrastructure.",
+            "variables": {
+                "compartment_ocid": {
+                    "title": "Compartment",
+                    "description": "Select a compartment for this deployment."
+                },
+                "availablity_domain_name": {
+                    "title": "Availability Domain",
+                    "description": "Choose the Availability Domain where you want to deploy the resources defined by this stack."
+                },
+                "ATP_password": {
+                    "title": "ATP Database Password for ADMIN user.",
+                    "description": "Password must be 12 to 30 characters and contain at least one uppercase letter, one lowercase letter, and one number. The password cannot contain double quotation marks or the username 'admin'."
+                }
+            },
+            "outputs": {
+                "loadbalancer_public_url": {
+                    "title": "Loadbalancer Public URL",
+                    "displayText": "Loadbalancer Public URL"
+                }
+            }
+        },
+        "tomcatQuickstarts": {
+            "longDescription": "Deploy Apache Tomcat on Arm-based Ampere A1 compute connected to an autonomous database",
+            "solutionName": "Apache Tomcat on Arm",
+            "stackDescription": "Deploy a simple to-do application with Apache Tomcat",
+            "title": "Create Apache Tomcat on Arm-based Ampere A1 compute connected to an autonomous database in Oracle Cloud Infrastructure.",
+            "variables": {
+                "compartment_ocid": {
+                    "title": "Compartment",
+                    "description": "Select a compartment for this deployment."
+                },
+                "availability_domain_name": {
+                    "title": "Availability Domain",
+                    "description": "Select an Availability Domain for this deployment."
+                },
+                "atp_password": {
+                    "title": "ATP Database Password for ADMIN user.",
+                    "description": "Password must be 12 to 30 characters and contain at least one uppercase letter, one lowercase letter, and one number. The password cannot contain double quotation marks or the username 'admin'."
+                }
+            },
+            "outputs": {
+                "todoapp_url": {
+                    "title": "TODO App URL",
+                    "displayText": "TODO App URL"
+                },
+                "bastion_public_ip": {
+                    "title": "Bastion Host Public IP",
+                    "displayText": "Bastion Host Public IP"
+                }
+            }
+        },
+        "rstudioQuickstarts" : {
+
+            "longDescription": "Deploy RStudio, an integrated development environment (IDE) for R",
+            "solutionName": "RStudio",
+            "stackDescription": "Deploy the RStudio integrated development environment (IDE) for R on OCI",
+            "stackTitle": "Deploy the RStudio integrated development environment (IDE) for R on OCI",
+
+            "variableGroups":{
+                "rstudioConfigurationTitle":"RStudio Configuration" ,
+                "instanceConfigurationTitle":"Instance Configuration" ,
+                "networkConfigurationTitle": "Network Configuration"
+            },
+            "outputGroups":{
+                "serviceEndpointsTitle":"Service Endpoints",
+                "generatedPasswordsTitle":"Generated Passwords"
+            },
+            "outputs":{
+                "publicIpTitle" : "Open RStudio",
+                "publicIpDescription" : "Open RStudio in your browser",
+                "generatedSshPrivateKeyTitle" : "Generated SSH Private Key",
+                "generatedSshPrivateKeyDescription" : "Generated SSH Private Key"
+            },
+            "variables":{
+                "showAdvancedTitle": "Show advanced options ?" ,
+                "showAdvancedDescription": "Shows advanced options.",
+                "rstudioUserTitle": "RStudio username" ,
+                "rstudioUserDescription": "The username to be used for logging in to RStudio." ,
+                "rstudioPasswordTitle": "Password for the RStudio username" ,
+                "rstudioPasswordDescription": "The password must be more than 8 characters and include at least one uppercase letter, one lowercase letter, one number, and one of the following special characters: !@#%^*_+-:?.,[]\\{\\}" ,
+                "vcnTitle": "VCN name" ,
+                "vcnDescription": "Type VCN name where your RStudio environment will be deployed." ,
+                "vcnCidrTitle": "VCN CIDR" ,
+                "vcnCidrDescription": "Choose VCN CIDR for your RStudio deployment." ,
+                "compartmentOcidTitle": "Compartment" ,
+                "compartmentOcidDescription": "Compartment where your RStudio will be deployed." ,
+                "availabilityDomainNameTitle": "Availability Domain to be chosen" ,
+                "availabilityDomainNameDescription": "Choose Availability Domain where your RStudio will be deployed." ,
+                "instanceShapeTitle": "RStudio node shape" ,
+                "instanceShapeDescription": "Choose Instance Shape for RStudio host." ,
+                "instanceOcpusTitle": "Number of OCPUs" ,
+                "instanceOcpusDescription": "You can customize the number of OCPUs to a flexible shape." ,
+                "instanceShapeConfigMemoryInGbsTitle": "Amount of memory (GB)" ,
+                "instanceShapeConfigMemoryInGbsDescription": "You can customize the amount of memory allocated to a flexible shape." ,
+                "instanceOsTitle": "Instance OS" ,
+                "instanceOsDescription": "An Operating System that determines the operating system for RStudio host." ,
+                "linuxOsVersionTitle": "Instance OS version" ,
+                "linuxOsVersionDescription": "An Operating System version that determines the operating system version for RStudio host." ,
+                "labelPrefixTitle": "RStudio Hostname Prefix" ,
+                "labelPrefixDescription": "Type RStudio Hostname Prefix." ,
+                "generatePublicSshKeyTitle": "Auto generate public ssh key?" ,
+                "publicSshKeyTitle": "Import your own SSH public key" ,
+                "publicSshKeyDescription": "In order to access your private nodes with a public SSH key you will need to set up a bastion host (a.k.a. jump box). If using public nodes, bastion is not needed. Left blank to not import keys."
+            }
+        },
+        "kibanaQuickstarts": {
+			"longDescription" : "Deploy cluster configuration (simple) of Elasticsearch and Kibana in Oracle Cloud Infrastructure.",
+			"solutionName" : "Deploy Elasticsearch and Kibana in OCI",
+			"stackDescription": "Deploy Elasticsearch and Kibana in OCI",
+			"title" : "Deploy Elasticsearch and Kibana in OCI",
+            "variableGroups":{
+                "kibanaConfigurationTitle" :"Required Configuration",
+                "instanceConfigurationTitle":"Instance Configuration",
+                "networkConfigurationTitle": "Network Configuration",
+                "eskibanaConfigurationTitle": "ES & Kibana Configuration"
+            },
+			"variables": {
+				"showAdvancedTitle": "Show advanced options?" ,
+                "showAdvancedDescription": "Shows advanced options.",
+                "instanceShapeTitle": "ELK Instance Shape" ,
+                "instanceShapeDescription": "Choose Instance Shape for ELK Instance host." ,
+                "instanceOcpusTitle": "Flex Shape OCPUs" ,
+                "instanceOcpusDescription": "Choose number of OCPUs for Flex Shape." ,
+                "instanceShapeConfigMemoryInGbsTitle": "Flex Shape Memory (GB)" ,
+                "instanceShapeConfigMemoryInGbsDescription": "Choose number GB for Flex Shape Memory." ,
+                "instanceOsTitle": "Instance OS" ,
+                "instanceOsDescription": "An Operating System that determines the operating system for Elasticsearch host." ,
+                "linuxOsVersionTitle": "Instance OS version" ,
+                "linuxOsVersionDescription": "An Operating System version that determines the operating system version for your Elasticsearch and Kibana host." ,
+                "VCN-CIDR.title": "VCN CIDR" ,
+                "VCN-CIDR.description": "Choose VCN CIDR for your Kibana deployment." ,
+                "ELKSubnet-CIDR.title": " ELK Subnet CIDR" ,
+                "ELKSubnet-CIDR.description" : "ELKSubnet-CIDR",
+                "compartment_ocid": {
+					"title": "Compartment",
+                    "description": "Compartment where you deploy your Elasticsearch and Kibana"
+                },
+                "availability_domain_name": {
+                    "title": "Availability Domain",
+                    "description": "Availability Domain where you deploy your Elasticsearch and Kibana"
+                }
+			},
+			"outputs": {
+                "ELK_VM_public_IP": {
+                    "title": "ELK_VM_public_IP",
+                    "displayText": "ELK_VM_public_IP"
+                }
+            }
+        },
+        "baselineLandingZoneSandbox": {
+            "longDescription": "OCI Baseline Landing Zone, part of the Cloud Adoption Framework.",
+            "solutionName": "Baseline Landing Zone Sandbox",
+            "stackDescription": "Landing Zone Sandbox developed by OCI",
+            "title": "Baseline Landing Zone Sandbox",
+            "variables": {
+                "advanced_logging_option": {
+                    "title": "Advanced Logging",
+                    "description": "Enable or Disable Advanced Logging (VCN flow logs and/or Audit logs)."
+                },
+                "bastion_client_cidr_block_allow_list": {
+                    "title": "Bastion Client CIDR Block Allow List",
+                    "description": "A list of address ranges in CIDR notation that can connect to the bastion."
+                }
+            },
+            "outputs": {
+                "more_info_url": {
+                    "title": "More Information",
+                    "displayText": "For more information, please see the Cloud Adoption Framework - Technical Implementation"
+                }
+            }
+        },
+        "enterpriseScaleBaselineLandingZone": {
+            "longDescription": "OCI Enterprise Scale Baseline Landing Zone, part of the Cloud Adoption Framework.",
+            "solutionName": "Enterprise Scale Baseline Landing Zone",
+            "stackDescription": "Enterprise Scale Baseline Landing Zone developed by OCI",
+            "title": "Enterprise Scale Baseline Landing Zone",
+            "variables": {
+                "tag_cost_center": {
+                    "title": "Tag Cost Center",
+                    "description": "CostCenter tag value. Allows printable ASCII, excluding periods (.) and spaces and max 100 characters."
+                },
+                "tag_geo_location": {
+                    "title": "Tag Geo Location",
+                    "description": "GeoLocation tag value. Allows printable ASCII, excluding periods (.) and spaces and max 100 characters."
+                },
+                "show_extra_compartment_names": {
+                    "title": "Override default compartment names"
+                },
+                "parent_compartment_name": {
+                    "title": "Parent Compartment Name",
+                    "description": "Name of the top level / parent compartment. Maximum 100 characters, including letters, numbers, periods, hyphens, underscores, and is unique within its parent compartment."
+                },
+                "workload_compartment_names": {
+                    "title": "Workload Compartment Names",
+                    "description": "List of up to five application workload compartment names. Maximum 100 characters, including letters, numbers, periods, hyphens, underscores, and is unique within its parent compartment."
+                },
+                "network_compartment_name": {
+                    "title": "Network Compartment Name",
+                    "description": "Name of the top level network compartment. Maximum 100 characters, including letters, numbers, periods, hyphens, underscores, and is unique within its parent compartment."
+                },
+                "security_compartment_name": {
+                    "title": "Security Compartment Name",
+                    "description": "Name of the top level security compartment. Maximum 100 characters, including letters, numbers, periods, hyphens, underscores, and is unique within its parent compartment."
+                },
+                "common_infra_compartment_name": {
+                    "title": "Common Infra Compartment Name",
+                    "description": "Name of the top level common infrastructure compartment. Maximum 100 characters, including letters, numbers, periods, hyphens, underscores, and is unique within its parent compartment."
+                },
+                "applications_compartment_name": {
+                    "title": "Applications Compartment Name",
+                    "description": "Name of the top level application compartment. Maximum 100 characters, including letters, numbers, periods, hyphens, underscores, and is unique within its parent compartment."
+                },
+                "break_glass_user_email_list": {
+                    "title": "Break Glass User Email List",
+                    "description": "Unique list of break glass user email addresses that do not exist. These users are added to the Administrator group in the tenancy."
+                },
+                "show_extra_iam_vars": {
+                    "title": "Show Security Policy Variables",
+                    "description": "Show security policy variables. If you already have a vault and encryption key provisioned."
+                },
+                "key_id": {
+                    "title": "Key Id",
+                    "description": "Master encryption key OCID for security admin policy."
+                },
+                "vault_id": {
+                    "title": "Vault Id",
+                    "description": "Vault OCID for security admin policy."
+                },
+                "show_extra_group_names": {
+                    "title": "Override default group names"
+                },
+                "workload_admins_group_name": {
+                    "title": "Workload Admins Group Named",
+                    "description": "The name for the workload administrators group. Maximum 100 characters, including letters, numbers, periods, hyphens, underscores, and is unique across all groups."
+                },
+                "cloud_guard_analysts_group_name": {
+                    "title": "Cloud Guard Analyst Group Name",
+                    "description": "The name of the Cloud Guard Analyst group. Maximum 100 characters, including letters, numbers, periods, hyphens, underscores, and is unique across all groups."
+                },
+                "cloud_guard_architects_group_name": {
+                    "title": "Cloud Guard Architects Group Name",
+                    "description": "The name of the Cloud Guard Architect group. Maximum 100 characters, including letters, numbers, periods, hyphens, underscores, and is unique across all groups."
+                },
+                "cloud_guard_operators_group_name": {
+                    "title": "Cloud Guard Operators Group Name",
+                    "description": "The name of the Cloud Guard Operator group. Maximum 100 characters, including letters, numbers, periods, hyphens, underscores, and is unique across all groups."
+                },
+                "lb_users_group_name": {
+                    "title": "Load Balancer User Group Name",
+                    "description": "The name for the load balancer users group. Maximum 100 characters, including letters, numbers, periods, hyphens, underscores, and is unique across all groups."
+                },
+                "network_admin_group_name": {
+                    "title": "Network Admins Group Name",
+                    "description": "The name for the network administrator group. Maximum 100 characters, including letters, numbers, periods, hyphens, underscores, and is unique across all groups."
+                },
+                "security_admins_group_name": {
+                    "title": "Security Admins Group Name",
+                    "description": "The name for the security admin group. Maximum 100 characters, including letters, numbers, periods, hyphens, underscores, and is unique across all groups."
+                },
+                "workload_storage_admins_group_name": {
+                    "title": "Workload Storage Admins Group Name",
+                    "description": "The name for the workload storage administrators group. Maximum 100 characters, including letters, numbers, periods, hyphens, underscores, and is unique across all groups."
+                },
+                "workload_storage_users_group_name": {
+                    "title": "Workload Storage Users Group Name",
+                    "description": "The name for the workload storage users group. Maximum 100 characters, including letters, numbers, periods, hyphens, underscores, and is unique across all groups."
+                },
+                "workload_users_group_name": {
+                    "title": "Workload Users Group Name",
+                    "description": "The name for the workload users group. Maximum 100 characters, including letters, numbers, periods, hyphens, underscores, and is unique across all groups."
+                },
+                "vcn_cidr_block": {
+                    "title": "VCN CIDR Block",
+                    "description": "Primary VCN CIDR Block"
+                },
+                "vcn_dns_label": {
+                    "title": "VCN DNS Label",
+                    "description": "VCN DNS Label. Allowed maximum 15 alphanumeric characters and must start with a letter."
+                },
+                "is_public_subnet_enabled": {
+                    "title": "Provision public subnet?",
+                    "description": "Used for resources with publicly accessible IP addresses."
+                },
+                "private_subnet_cidr_blocks": {
+                    "title": "Private Subnet CIDR Blocks",
+                    "description": "List of Private Subnet CIDR Block (one per workload, maximum of five)."
+                },
+                "private_subnet_dns_labels": {
+                    "title": "Private Subnet DNS Labels",
+                    "description": "List of Private Subnet DNS Label (one per workload, maximum of five). Allowed maximum 15 alphanumeric characters and must start with a letter."
+                },
+                "public_subnet_cidr_block": {
+                    "title": "Public Subnet CIDR Block",
+                    "description": "Public Subnet CIDR Block."
+                },
+                "public_subnet_dns_label": {
+                    "title": "Public Subnet DNS Label",
+                    "description": "Public Subnet DNS Label. Allowed maximum 15 alphanumeric characters and must start with a letter."
+                },
+                "database_subnet_cidr_blocks": {
+                    "title": "Database Subnet CIDR Blocks",
+                    "description": "List of Database Subnet CIDR Block (one per workload, maximum of five)."
+                },
+                "database_subnet_dns_labels": {
+                    "title": "Database Subnet DNS Labels",
+                    "description": "List of Database Subnet DNS Label (one per workload, maximum of five). Allowed maximum 15 alphanumeric characters and must start with a letter."
+                },
+                "egress_rules_map": {
+                    "title": "Egress Rules Map",
+                    "description": "[Workload Security List] Egress Rules Map. To customize rules for a workload, use the workload name as the value of key."
+                },
+                "ingress_rules_map": {
+                    "title": "Ingress Rules Map",
+                    "description": "[Workload Security List] Ingress Rules Map. To customize rules for a workload, use the workload name as the value of key."
+                },
+                "is_shared_services_subnet_enabled": {
+                    "title": "Provision a shared services subnet?",
+                    "description": "Used for shared services e.g. File Storage Service."
+                },
+                "shared_service_subnet_cidr_block": {
+                    "title": "Shared Service Subnet CIDR Block",
+                    "description": "Shared Service Subnet CIDR Block."
+                },
+                "shared_service_subnet_dns_label": {
+                    "title": "Shared Service Subnet DNS Label",
+                    "description": "Shared Service Subnet DNS Label. Allowed maximum 15 alphanumeric characters and must start with a letter."
+                },
+                "budget_alerting": {
+                    "title": "Budget Alerting",
+                    "description": "Set to true to enable budget alerting."
+                },
+                "budget_alert_rule_message": {
+                    "title": "Budget Alert Rule Message",
+                    "description": "(Optional if using budget alerts): The alert message for budget alerts."
+                },
+                "budget_alert_rule_recipients": {
+                    "title": "Budget Alert Rule Recipients",
+                    "description": "(Optional if using budget alerts): Target email address for budget alerts."
+                },
+                "budget_alert_rule_threshold": {
+                    "title": "Budget Alert Rule Threshold",
+                    "description": "(Optional if using budget alerts): The target spending threshold for the budget."
+                },
+                "budget_amount": {
+                    "title": "Budget Amount",
+                    "description": "(Optional if using budget alerts): The amount of the budget expressed as a number in the currency of the customer's rate card."
+                },
+                "advanced_logging_option": {
+                    "title": "Enable Advanced Logging?",
+                    "description": "Enable or Disable Advanced Logging (VCN flow logs and/or Audit logs)."
+                },
+                "retention_rule_duration_time_amount": {
+                    "title": "Audit Log Retention Rule Duration Time Amount",
+                    "description": "Please note this feature is irreversible after 14 days. Please review (and/or) unlock the retention rule before it is locked permanently. By enabling this feature, logs will be archived in an immutable storage with locked retention rule avoiding object modification and deletion. After the rule is locked, only increase in the retention is allowed."
+                },
+                "is_cloud_guard_enabled": {
+                    "title": "Enable Cloud Guard?",
+                    "description": "the status of the Cloud Guard tenant (ENABLED if true or DISABLED if false)."
+                },
+                "agent_cis_benchmark_settings_scan_level": {
+                    "title": "Agent Cis Benchmark Settings Scan Level",
+                    "description": "Agent benchmarking settings scan level."
+                },
+                "host_scan_recipe_agent_settings_scan_level": {
+                    "title": "Host Scan Recipe Agent Settings Scan Level",
+                    "description": "Vulnerability scanning service agent scan level."
+                },
+                "host_scan_recipe_port_settings_scan_level": {
+                    "title": "Host Scan Recipe Port Settings Scan Level",
+                    "description": "Vulnerability scanning service port scan level."
+                },
+                "vss_scan_schedule": {
+                    "title": "Vss Scan Schedule",
+                    "description": "Vulnerability scanning service scan schedule."
+                },
+                "bastion_client_cidr_block_allow_list": {
+                    "title": "Bastion Client CIDR Block Allow List",
+                    "description": "A list of address ranges in CIDR notation that bastion is allowed to connect."
+                },
+                "bastion_subnet_cidr_block": {
+                    "title": "Bastion Subnet CIDR Block",
+                    "description": "CIDR Block for bastion subnet."
+                },
+                "use_ipsec_drg": {
+                    "title": "Use IPsec DRG?",
+                    "description": "Choose whether or not to use an IPsec based DRG."
+                },
+                "cpe_ip_address": {
+                    "title": "CPE IP Address",
+                    "description": "Customer Premises Equipment IP address."
+                },
+                "ip_sec_connection_static_routes": {
+                    "title": "IPsec Connection Static Routes",
+                    "description": "IPSec connection static routes."
+                },
+                "use_fastconnect_drg": {
+                    "title": "Use FastConnect?",
+                    "description": "Choose whether or not to use FastConnect."
+                },
+                "fastconnect_provider": {
+                    "title": "FastConnect Provider",
+                    "description": "Available FastConnect providers: AT&T, Microsoft Azure, Megaport, QTS, CEintro, Cologix, CoreSite, Digitial Realty, EdgeConneX, Epsilon, Equinix, InterCloud, Lumen, Neutrona, OMCS, OracleL2ItegDeployment, OracleL3ItegDeployment, Orange, Verizon, Zayo."
+                },
+                "virtual_circuit_bandwidth_shape": {
+                    "title": "Virtual Circuit Bandwidth Shape",
+                    "description": "The provisioned data rate of the connection. Choose between 1 or 10 for FastConnect partner. Or choose between 1, 10 or 100 for FastConnect Direct."
+                },
+                "virtual_circuit_cross_connect_mappings_customer_bgp_peering_ip": {
+                    "title": "Virtual Circuit Cross Connect Mappings - Customer BGP peering IP",
+                    "description": "This is the BGP IPv4 address of the customer's router. Enter Placeholder value for Non-ASN Virtual Circuits."
+                },
+                "virtual_circuit_cross_connect_mappings_oracle_bgp_peering_ip": {
+                    "title": "Virtual Circuit Cross Connect Mappings - Oracle BPG Peering IP",
+                    "description": "IPv4 address for Oracle's end of the BGP session. Enter Placeholder value for Non-ASN Virtual Circuits."
+                },
+                "fastconnect_routing_policy": {
+                    "title": "FastConnect Routing Policy",
+                    "description": "Available FastConnect routing policies: ORACLE_SERVICE_NETWORK, REGIONAL, MARKET_LEVEL, GLOBAL."
+                },
+                "provider_service_key_name": {
+                    "title": "Provider Service Key Name",
+                    "description": "The provider service key that the provider gives you when you set up a virtual circuit connection from the provider to OCI."
+                },
+                "virtual_circuit_cross_connect_mappings_customer_secondary_bgp_peering_ip": {
+                    "title": "Virtual Circuit Cross Connect Mappings - Customer Secondary BGP Peering IP",
+                    "description": "This is the secondary BGP IPv4 address of the customer's router."
+                },
+                "virtual_circuit_cross_connect_mappings_oracle_secondary_bgp_peering_ip": {
+                    "title": "Virtual Circuit Cross Connect Mappings - Oracle Secondary BGP Peering IP",
+                    "description": "Secondary IPv4 address for Oracle's end of the BGP session."
+                },
+                "virtual_circuit_customer_asn": {
+                    "title": " The BGP ASN of the network at the other end of the BGP session from Oracle. Enter Placeholder value for Non-ASN Virtual Circuits.",
+                    "description": "Secondary IPv4 address for Oracle's end of the BGP session."
+                },
+                "is_sandbox_mode_enabled": {
+                    "title": "Enable Sandbox Mode?",
+                    "description": "Enable the sandbox mode if using the stack for development or demonstrations. Adds a unique suffix for all the tenancy level resources."
+                }
+            },
+            "outputs": {
+                "more_info_url": {
+                    "title": "More Information",
+                    "displayText": "For more information, please see the Cloud Adoption Framework - Technical Implementation"
+                }
+            }
+        },
+        "aivision": {
+            "longDescription": "Set up Vision with its prerequisite IAM groups and policies.",
+            "solutionName": "Vision",
+            "stackDescription": "Provision Vision and its prerequisites",
+            "variableGroups": {
+                "iamGroup": "IAM Group and Policy Configuration",
+                "customModelGroup": "Custom Model Configuration",
+                "batchAnalysisGroup": "Batch Analysis Configuration"
+            },
+            "variables": {
+                "vision_group_name": {
+                  "title": "Group Name for Security Policies",
+                  "description": "Do not use spaces.",
+                  "default": "VisionGroup"
+                },
+                "vision_root_policy_name": {
+                  "title": "Root Policy Name (Tenancy Level)",
+                  "description": "Do not use spaces.",
+                  "default": "VisionRootPolicies"
+                },
+                "use_custom_model": {
+                  "title": "Use custom models",
+                  "description": "Vision lets you train your own custom vision models to analyze images."
+                },
+                "use_batch_analysis": {
+                  "title": "Use batch analysis",
+                  "description": "Vision lets you analyze documents and images asynchronously in batch jobs."
+                },
+                "compartment_ocid": {
+                  "title": "Compartment",
+                  "description": "Choose a compartment where the user group has permission to store the result of the batch analysis."
+                }
+            }
+        },
+        "stravaQuickstarts": {
+            "solutionName": "Strava Data on Autonomous Database",
+            "stackDescription": "Visualize and Analyze Strava Data on Autonomous Database",
+            "longDescription": "Visualize and Analyze Strava Data on Autonomous Database",
+            "stackTitle": "Strava in Oracle REST Data Services Dashboards",
+            "outputs": {
+                "dashboardUrlTitle": "Dashboard URL",
+                "dashboardUrlDisplayText": "Dashboard URL",
+                "adbPasswordTitle": "ADB Password",
+                "adbPasswordDescription": "ADB Password"
+            },
+            "variables": {
+                "compartmentTitle": "Compartment",
+                "compartmentDescription": "Compartment where you want to create the solution resources"
+            }
+        },
+        "redbullDashboardQuickstarts": {
+            "solutionName": "Red Bull Racing Data on Autonomous Database",
+            "stackDescription": "Visualize and Analyze Red Bull Racing Data on Autonomous Database",
+            "longDescription": "Visualize and Analyze Red Bull Racing Data on Autonomous Database",
+            "stackTitle": "Red Bull Racing in Oracle REST Data Services Dashboards",
+            "outputs": {
+                "dashboardUrlTitle": "Dashboard URL",
+                "dashboardUrlDisplayText": "Dashboard URL",
+                "adbPasswordTitle": "ADB Password",
+                "adbPasswordDescription": "ADB Password"
+            },
+            "variables": {
+                "compartmentTitle": "Compartment",
+                "compartmentDescription": "Compartment where you want to create the solution resources"
+            }
+        },        
+        "nextcloudQuickstarts": {
+            "solutionName": "Deploy self-hosted productivity platform Nextcloud",
+            "stackDescription": "Deploy self-hosted productivity platform Nextcloud",
+            "longDescription": "Deploy self-hosted productivity platform Nextcloud",
+            "title": "Deploy self-hosted productivity platform Nextcloud",
+            "variableGroups": {
+                "nc_admin_user": {
+                    "title": "Nextcloud administrator username",
+                    "description": ""
+                },
+                "nc_admin_password": {
+                    "title": "Nextcloud administrator password",
+                    "description": "The password must be more than 8 characters and include at least one uppercase letter, one lowercase letter, one number, and one of the following special characters: !@#%^*_+-:?.,[]\\{\\}"
+                }
+            },
+            "outputGroups": {
+                "serviceEndpointsTitle": "Service endpoints",
+                "generatedPasswordsTitle": "Generated passwords"
+            },
+            "outputs": {
+                "nextcloud_public_ip": {
+                    "title": "Launch Nextcloud",
+                    "description": "Public IP Address for Nextcloud"
+                },
+                "generatedSshPrivateKeyTitle": "Generated SSH private key",
+                "generatedSshPrivateKeyDescription": "Use this key to connect to an instance running Nextcloud by using a Secure Shell (SSH) connection"
+            }
+        },
+        "redbullPredictorQuickstarts": {
+            "solutionName": "ORACLE RED BULL RACING – Predict the result of the next race",
+            "stackDescription": "Predict the result of the next race with our Oracle Red Bull Racing Machine Learning Hands-on-Lab",
+            "longDescription": "Predict the result of the next race with our Oracle Red Bull Racing Machine Learning Hands-on-Lab",
+            "title": "Oracle Red Bull Racing Analytics Hands-on Lab Environment",
+            "variables": {
+                "redbull_compartment": {
+                    "title": "Compartment Name",
+                    "description": "The name of the compartment that will be created."
+                },
+                "ssh_public_key": {
+                    "title": "Compute SSH Public Key",
+                    "description": "For Mac/Linux systems, you can use ssh-keygen. On Windows, you can use PuTTY Key Generator."
+                }
+            },
+            "outputs": {
+                "race_predictor_url": {
+                    "title": "Launch Predictor App",
+                    "description": "Takes you to the UI to Predict a Race"
+                },
+                "jupyter_url": {
+                    "title": "Launch Jupyter Notebook",
+                    "description": "Takes you to your Jupyter Notebook to train the model"
+                }
+            }
+        }
+    }
+}
